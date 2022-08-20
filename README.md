@@ -1,7 +1,7 @@
 # Canis_Mini_Firmware
 
 ## Description:
-This is the firmware used by AMini Canis Bot
+This is the firmware used by AC Robotics' Canis Bot
 
 ## Uses:
 1. Driving Servo Motors
