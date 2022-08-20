@@ -22,7 +22,7 @@ void ik() {
 
     superior_right_shoulder_abductor_pos = -atan2(-superior_right_y, superior_right_x) - atan2(sqrt(superior_right_x * superior_right_x + superior_right_y * superior_right_y - shoulder_length * shoulder_length), -shoulder_length);
     superior_left_shoulder_abductor_pos = -atan2(-superior_left_y, superior_left_x) - atan2(sqrt(superior_left_x * superior_left_x + superior_left_y * superior_left_y - shoulder_length * shoulder_length), -shoulder_length);
-    inferior_right_shoulder_abductor_pos = -atan2(-inferior_right_y, inferior_right_x) - atan2(sqrt(inferior_right_x * inferior_right_x + inferior_right_y * sinferiorright_y - shoulder_length * shoulder_length), -shoulder_length);
+    inferior_right_shoulder_abductor_pos = -atan2(-inferior_right_y, inferior_right_x) - atan2(sqrt(inferior_right_x * inferior_right_x + inferior_right_y * inferior_right_y - shoulder_length * shoulder_length), -shoulder_length);
     inferior_left_shoulder_abductor_pos = -atan2(-inferior_left_y, inferior_left_x) - atan2(sqrt(inferior_left_x * inferior_left_x + inferior_left_y * inferior_left_y - shoulder_length * shoulder_length), -shoulder_length);
 }
 
