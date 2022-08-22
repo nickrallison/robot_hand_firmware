@@ -39,10 +39,10 @@ void ik() {
 
     double nmult = 1 / (2 * arm_length);
 
-    double superior_right_n = superior_right_lxz * superior_right_lxz - forearm_length * forearm_length - arm_length * arm_length;
-    double superior_left_n = superior_left_lxz * superior_left_lxz - forearm_length * forearm_length - arm_length * arm_length;
-    double inferior_right_n = inferior_right_lxz * inferior_right_lxz - forearm_length * forearm_length - arm_length * arm_length;
-    double inferior_left_n = inferior_left_lxz * inferior_left_lxz - forearm_length * forearm_length - arm_length * arm_length;
+    double superior_right_n = (superior_right_lxz * superior_right_lxz - forearm_length * forearm_length - arm_length * arm_length) * nmult;
+    double superior_left_n = (superior_left_lxz * superior_left_lxz - forearm_length * forearm_length - arm_length * arm_length) * nmult;
+    double inferior_right_n = (inferior_right_lxz * inferior_right_lxz - forearm_length * forearm_length - arm_length * arm_length) * nmult;
+    double inferior_left_n = (inferior_left_lxz * inferior_left_lxz - forearm_length * forearm_length - arm_length * arm_length) * nmult;
 
     double superior_right_a1 = atan2(superior_right_x, superior_right_lyz);
     double superior_left_a1 = atan2(superior_left_x, superior_left_lyz);
