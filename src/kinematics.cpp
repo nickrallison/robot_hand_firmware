@@ -17,6 +17,10 @@ void ik() {
     double inferior_left_dyz;
     */
 
+    // ######### Calculation Process Vars ############
+    // From this repo: https://www.desmos.com/calculator/m8do1lkiop
+    // Motor positions are stored in extern vars at bottom
+
     double superior_right_lyz = sqrt(superior_right_dyz * superior_right_dyz - shoulder_length * shoulder_length);
     double superior_left_lyz = sqrt(superior_left_dyz * superior_left_dyz - shoulder_length * shoulder_length);
     double inferior_right_lyz = sqrt(inferior_right_dyz * inferior_right_dyz - shoulder_length * shoulder_length);
