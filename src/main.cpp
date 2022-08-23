@@ -36,7 +36,7 @@ Servo inferior_right_forearm_extensor;  // create servo object to control a serv
 Servo inferior_left_forearm_extensor;  // create servo object to control a servo
 
 
-int superior_right_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
+int superior_right_shoulder_abductor_pos = 75;  // Stores servo position in degrees from 0 to 180
 int superior_left_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
 int inferior_right_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
 int inferior_left_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
@@ -51,35 +51,35 @@ int superior_left_forearm_extensor_pos = 0;  // Stores servo position in degrees
 int inferior_right_forearm_extensor_pos = 0;  // Stores servo position in degrees from 0 to 180
 int inferior_left_forearm_extensor_pos = 0;  // Stores servo position in degrees from 0 to 180
 
-int superior_right_shoulder_abductor_offset = 30;  // Stores servo position offset in degrees from 0 to 180
+int superior_right_shoulder_abductor_offset = 75; // Stores servo position offset in degrees from 0 to 180
 int superior_left_shoulder_abductor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
 int inferior_right_shoulder_abductor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
 int inferior_left_shoulder_abductor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
 
-int superior_right_arm_extensor_offset = 50;  // Stores servo position offset in degrees from 0 to 180
+int superior_right_arm_extensor_offset = 75;  // Stores servo position offset in degrees from 0 to 180
 int superior_left_arm_extensor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
 int inferior_right_arm_extensor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
 int inferior_left_arm_extensor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
 
-int superior_right_forearm_extensor_offset = 180;  // Stores servo position offset in degrees from 0 to 180
+int superior_right_forearm_extensor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
 int superior_left_forearm_extensor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
 int inferior_right_forearm_extensor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
 int inferior_left_forearm_extensor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
 
 double superior_right_x = 0;    // Stores bot legs x, y, & z positions for each leg
-double superior_right_y = -0.05;    // Stores bot legs x, y, & z positions for each leg
+double superior_right_y = 0;    // Stores bot legs x, y, & z positions for each leg
 double superior_right_z = 0;    // Stores bot legs x, y, & z positions for each leg
 
 double superior_left_x = 0;     // Stores bot legs x, y, & z positions for each leg
-double superior_left_y = -0.05;     // Stores bot legs x, y, & z positions for each leg
+double superior_left_y = 0;     // Stores bot legs x, y, & z positions for each leg
 double superior_left_z = 0;     // Stores bot legs x, y, & z positions for each leg
 
 double inferior_right_x = 0;    // Stores bot legs x, y, & z positions for each leg
-double inferior_right_y = -0.05;    // Stores bot legs x, y, & z positions for each leg
+double inferior_right_y = 0;    // Stores bot legs x, y, & z positions for each leg
 double inferior_right_z = 0;    // Stores bot legs x, y, & z positions for each leg
 
 double inferior_left_x = 0;     // Stores bot legs x, y, & z positions for each leg
-double inferior_left_y = -0.05;     // Stores bot legs x, y, & z positions for each leg
+double inferior_left_y = 0;     // Stores bot legs x, y, & z positions for each leg
 double inferior_left_z = 0;     // Stores bot legs x, y, & z positions for each leg
 
 // Canis Body Params, measure from joint center
@@ -98,39 +98,18 @@ void setup() {
 }
 
 void loop() {
-  //for (double z = 0; z < 2*M_PI; z += 0.1) {
+  for (double z = 0; z < 2*M_PI; z += 0.1) {
     //Serial.print(x);
     superior_right_x = 0.0;
-    superior_right_y = 0.0;
-    superior_right_z = -0.15;
+    superior_right_y = 0.055;
+    superior_right_z = -0.12 + 0.05 * sin(z);
     ik();
-    //command_motors();
+    command_motors();
     delay(50);
 
     //Serial.print(superior_right_z);
     //Serial.print('\n');
 
-    Serial.print(superior_right_x);
-    Serial.print(' ');
 
-    Serial.print(superior_right_y);
-    Serial.print(' ');
-
-    Serial.print(superior_right_z);
-    Serial.print(' ');
-
-    Serial.print('\n');
-
-
-    Serial.print(RAD_TO_DEG * superior_right_shoulder_abductor_pos);
-    Serial.print(' ');
-
-    Serial.print(RAD_TO_DEG * superior_right_arm_extensor_pos);
-    Serial.print(' ');
-
-    Serial.print(RAD_TO_DEG * superior_right_forearm_extensor_pos);
-    Serial.print(' ');
-
-    Serial.print('\n');
-  //}
+  }
 }

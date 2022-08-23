@@ -1,6 +1,7 @@
 #include "kinematics.h"
 #include "robot_constant.h"
 #include <math.h>
+#include <Arduino.h>
 
 #define RAD_TO_DEG 180.0 / M_PI
 
@@ -18,14 +19,15 @@ void ik() {
     */
 
     // ######### Calculation Process Vars ############
-    // From this repo: https://www.desmos.com/calculator/m8do1lkiop
+    // From this repo: https://github.com/Technician13/QuadrupedInverseKinematic
+    // Example Desmos Graph: https://www.desmos.com/calculator/m8do1lkiop
     // Motor positions are stored in extern vars at bottom
 
     double superior_right_lyz = sqrt(superior_right_dyz * superior_right_dyz - shoulder_length * shoulder_length);
     double superior_left_lyz = sqrt(superior_left_dyz * superior_left_dyz - shoulder_length * shoulder_length);
     double inferior_right_lyz = sqrt(inferior_right_dyz * inferior_right_dyz - shoulder_length * shoulder_length);
     double inferior_left_lyz = sqrt(inferior_left_dyz * inferior_left_dyz - shoulder_length * shoulder_length);
-    
+
     double superior_right_g1 = atan2(superior_right_y, superior_right_z);
     double superior_left_g1 = atan2(superior_left_y, superior_left_z);
     double inferior_right_g1 = atan2(inferior_right_y, inferior_right_z);
@@ -63,15 +65,15 @@ void ik() {
     inferior_right_forearm_extensor_pos = acos(inferior_right_n / forearm_length) * RAD_TO_DEG;
     inferior_left_forearm_extensor_pos = acos(inferior_left_n / forearm_length) * RAD_TO_DEG;
 
-    superior_right_arm_extensor_pos = -(superior_right_a1 + superior_right_a2) * RAD_TO_DEG;
-    superior_left_arm_extensor_pos = -(superior_left_a1 + superior_left_a2) * RAD_TO_DEG;
-    inferior_right_arm_extensor_pos = -(inferior_right_a1 + inferior_right_a2) * RAD_TO_DEG;
-    inferior_left_arm_extensor_pos = -(inferior_left_a1 + inferior_left_a2) * RAD_TO_DEG;
+    superior_right_arm_extensor_pos = (superior_right_a1 + superior_right_a2) * RAD_TO_DEG;
+    superior_left_arm_extensor_pos = (superior_left_a1 + superior_left_a2) * RAD_TO_DEG;
+    inferior_right_arm_extensor_pos = (inferior_right_a1 + inferior_right_a2) * RAD_TO_DEG;
+    inferior_left_arm_extensor_pos = (inferior_left_a1 + inferior_left_a2) * RAD_TO_DEG;
 
-    superior_right_shoulder_abductor_pos = (-(superior_right_g1 - superior_right_g2) + M_PI) * RAD_TO_DEG;
-    superior_left_shoulder_abductor_pos = (-(superior_left_g1 - superior_left_g2) + M_PI) * RAD_TO_DEG;
-    inferior_right_shoulder_abductor_pos = (-(inferior_right_g1 - inferior_right_g2) + M_PI) * RAD_TO_DEG;
-    inferior_left_shoulder_abductor_pos = (-(inferior_left_g1 - inferior_left_g2) + M_PI) * RAD_TO_DEG;
+    superior_right_shoulder_abductor_pos = (-(superior_right_g1 + superior_right_g2) + M_PI) * RAD_TO_DEG;
+    superior_left_shoulder_abductor_pos = (-(superior_left_g1 + superior_left_g2) + M_PI) * RAD_TO_DEG;
+    inferior_right_shoulder_abductor_pos = (-(inferior_right_g1 + inferior_right_g2) + M_PI) * RAD_TO_DEG;
+    inferior_left_shoulder_abductor_pos = (-(inferior_left_g1 + inferior_left_g2) + M_PI) * RAD_TO_DEG;
 }
 
 void fk() {
