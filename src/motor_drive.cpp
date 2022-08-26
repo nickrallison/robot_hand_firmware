@@ -4,6 +4,9 @@
 #include "robot_constant.h"
 #include "pin_map.h"
 
+// See this lib: https://learn.adafruit.com/16-channel-pwm-servo-driver?view=all
+//pulselength = map(degrees, 0, 180, SERVOMIN, SERVOMAX);  for ease of use
+
 void init_motors() {
     superior_right_shoulder_abductor.attach(servo_pins[0]);  
     superior_left_shoulder_abductor.attach(servo_pins[1]);  
