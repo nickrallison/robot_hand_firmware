@@ -1,5 +1,7 @@
-#include <Servo.h>
 
+#include <Wire.h>
+#include <Adafruit_PWMServoDriver.h>
+/*
 extern Servo superior_right_shoulder_abductor;  // create servo object to control a servo
 extern Servo superior_left_shoulder_abductor;  // create servo object to control a servo
 extern Servo inferior_right_shoulder_abductor;  // create servo object to control a servo
@@ -14,7 +16,9 @@ extern Servo superior_right_forearm_extensor;  // create servo object to control
 extern Servo superior_left_forearm_extensor;  // create servo object to control a servo
 extern Servo inferior_right_forearm_extensor;  // create servo object to control a servo
 extern Servo inferior_left_forearm_extensor;  // create servo object to control a servo
+*/
 
+extern Adafruit_PWMServoDriver pwm;// = Adafruit_PWMServoDriver();
 
 extern int superior_right_shoulder_abductor_pos;  // Stores servo position in degrees from 0 to 180
 extern int superior_left_shoulder_abductor_pos;  // Stores servo position in degrees from 0 to 180

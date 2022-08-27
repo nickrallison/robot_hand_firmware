@@ -6,7 +6,8 @@
 #include "kinematics.h"
 #include "motor_drive.h"
 
-#include <Servo.h>
+#include <Wire.h>
+#include <Adafruit_PWMServoDriver.h>
 
 /* This is the main file for the CANIS_mini arduino controller
  *  
@@ -19,7 +20,7 @@
  * 
  */ 
 
-
+/*
 Servo superior_right_shoulder_abductor;  // create servo object to control a servo
 Servo superior_left_shoulder_abductor;  // create servo object to control a servo
 Servo inferior_right_shoulder_abductor;  // create servo object to control a servo
@@ -34,6 +35,9 @@ Servo superior_right_forearm_extensor;  // create servo object to control a serv
 Servo superior_left_forearm_extensor;  // create servo object to control a servo
 Servo inferior_right_forearm_extensor;  // create servo object to control a servo
 Servo inferior_left_forearm_extensor;  // create servo object to control a servo
+*/
+
+Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
 
 int superior_right_shoulder_abductor_pos = 75;  // Stores servo position in degrees from 0 to 180
