@@ -20,35 +20,50 @@ extern Servo inferior_left_forearm_extensor;  // create servo object to control 
 
 extern Adafruit_PWMServoDriver pwm;// = Adafruit_PWMServoDriver();
 
-extern int superior_right_shoulder_abductor_pos;  // Stores servo position in degrees from 0 to 180
-extern int superior_left_shoulder_abductor_pos;  // Stores servo position in degrees from 0 to 180
-extern int inferior_right_shoulder_abductor_pos;  // Stores servo position in degrees from 0 to 180
-extern int inferior_left_shoulder_abductor_pos;  // Stores servo position in degrees from 0 to 180
+extern double superior_right_shoulder_abductor_pos;  // Stores servo position in degrees from 0 to 180
+extern double superior_left_shoulder_abductor_pos;  // Stores servo position in degrees from 0 to 180
+extern double inferior_right_shoulder_abductor_pos;  // Stores servo position in degrees from 0 to 180
+extern double inferior_left_shoulder_abductor_pos;  // Stores servo position in degrees from 0 to 180
 
-extern int superior_right_arm_extensor_pos;  // Stores servo position in degrees from 0 to 180
-extern int superior_left_arm_extensor_pos;  // Stores servo position in degrees from 0 to 180
-extern int inferior_right_arm_extensor_pos;  // Stores servo position in degrees from 0 to 180
-extern int inferior_left_arm_extensor_pos;  // Stores servo position in degrees from 0 to 180
+extern double superior_right_arm_extensor_pos;  // Stores servo position in degrees from 0 to 180
+extern double superior_left_arm_extensor_pos;  // Stores servo position in degrees from 0 to 180
+extern double inferior_right_arm_extensor_pos;  // Stores servo position in degrees from 0 to 180
+extern double inferior_left_arm_extensor_pos;  // Stores servo position in degrees from 0 to 180
 
-extern int superior_right_forearm_extensor_pos;  // Stores servo position in degrees from 0 to 180
-extern int superior_left_forearm_extensor_pos;  // Stores servo position in degrees from 0 to 180
-extern int inferior_right_forearm_extensor_pos;  // Stores servo position in degrees from 0 to 180
-extern int inferior_left_forearm_extensor_pos;  // Stores servo position in degrees from 0 to 180
+extern double superior_right_forearm_extensor_pos;  // Stores servo position in degrees from 0 to 180
+extern double superior_left_forearm_extensor_pos;  // Stores servo position in degrees from 0 to 180
+extern double inferior_right_forearm_extensor_pos;  // Stores servo position in degrees from 0 to 180
+extern double inferior_left_forearm_extensor_pos;  // Stores servo position in degrees from 0 to 180
 
-extern int superior_right_shoulder_abductor_offset;  // Stores servo position offset in degrees from 0 to 180
-extern int superior_left_shoulder_abductor_offset;  // Stores servo position offset in degrees from 0 to 180
-extern int inferior_right_shoulder_abductor_offset;  // Stores servo position offset in degrees from 0 to 180
-extern int inferior_left_shoulder_abductor_offset;  // Stores servo position offset in degrees from 0 to 180
+extern double superior_right_shoulder_abductor_offset;  // Stores servo position offset in degrees from 0 to 180
+extern double superior_left_shoulder_abductor_offset;  // Stores servo position offset in degrees from 0 to 180
+extern double inferior_right_shoulder_abductor_offset;  // Stores servo position offset in degrees from 0 to 180
+extern double inferior_left_shoulder_abductor_offset;  // Stores servo position offset in degrees from 0 to 180
 
-extern int superior_right_arm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
-extern int superior_left_arm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
-extern int inferior_right_arm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
-extern int inferior_left_arm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
+extern double superior_right_arm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
+extern double superior_left_arm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
+extern double inferior_right_arm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
+extern double inferior_left_arm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
 
-extern int superior_right_forearm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
-extern int superior_left_forearm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
-extern int inferior_right_forearm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
-extern int inferior_left_forearm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
+extern double superior_right_forearm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
+extern double superior_left_forearm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
+extern double inferior_right_forearm_extensor_offset;  // Stores servo position offset in degrees from 0 to 180
+extern double inferior_left_forearm_extensor_offset;  // Stores servo position offset in degrees from 0 to 1pwm
+
+extern int superior_right_shoulder_abductor_pwm;  // Stores servo position in degrees from 0 to 180
+extern int superior_left_shoulder_abductor_pwm;  // Stores servo position in degrees from 0 to 180
+extern int inferior_right_shoulder_abductor_pwm;  // Stores servo position in degrees from 0 to 180
+extern int inferior_left_shoulder_abductor_pwm;  // Stores servo position in degrees from 0 to 180
+
+extern int superior_right_arm_extensor_pwm;  // Stores servo position in degrees from 0 to 180
+extern int superior_left_arm_extensor_pwm;  // Stores servo position in degrees from 0 to 180
+extern int inferior_right_arm_extensor_pwm;  // Stores servo position in degrees from 0 to 180
+extern int inferior_left_arm_extensor_pwm;  // Stores servo position in degrees from 0 to 180
+
+extern int superior_right_forearm_extensor_pwm;  // Stores servo position in degrees from 0 to 180
+extern int superior_left_forearm_extensor_pwm;  // Stores servo position in degrees from 0 to 180
+extern int inferior_right_forearm_extensor_pwm;  // Stores servo position in degrees from 0 to 180
+extern int inferior_left_forearm_extensor_pwm;  // Stores servo position in degrees from 0 to 180
 
 extern double superior_right_x;    // Stores bot legs x, y, & z positions for each leg
 extern double superior_right_y;    // Stores bot legs x, y, & z positions for each leg

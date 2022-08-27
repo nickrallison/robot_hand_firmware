@@ -19,33 +19,47 @@ uint8_t servonum = 0;
 
 void init_motors() {
 
-    pwm.setOscillatorFrequency(27000000);
+    pwm.begin();
+
+    pwm.setOscillatorFrequency(27000000); //set w/ ossicloscope?
     pwm.setPWMFreq(SERVO_FREQ);  
     
-    
-    /*
-    superior_right_shoulder_abductor.attach(servo_pins[0]);  
-    superior_left_shoulder_abductor.attach(servo_pins[1]);  
-    inferior_right_shoulder_abductor.attach(servo_pins[2]);  
-    inferior_left_shoulder_abductor.attach(servo_pins[3]);  
 
-    superior_right_arm_extensor.attach(servo_pins[4]);  
-    superior_left_arm_extensor.attach(servo_pins[5]);  
-    inferior_right_arm_extensor.attach(servo_pins[6]);  
-    inferior_left_arm_extensor.attach(servo_pins[7]);  
-
-    superior_right_forearm_extensor.attach(servo_pins[8]);  
-    superior_left_forearm_extensor.attach(servo_pins[9]);  
-    inferior_right_forearm_extensor.attach(servo_pins[10]);  
-    inferior_left_forearm_extensor.attach(servo_pins[11]);  
-    */
 }
 
 void command_motors() {
 
-    for (uint16_t pulselen = SERVOMIN; pulselen < SERVOMAX; pulselen++) {
-        pwm.setPWM(servonum, 0, pulselen);
-    }
+    superior_right_shoulder_abductor_pwm = map(superior_right_shoulder_abductor_pos + superior_right_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+    superior_left_shoulder_abductor_pwm = map(superior_left_shoulder_abductor_pos + superior_left_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+    inferior_right_shoulder_abductor_pwm = map(inferior_right_shoulder_abductor_pos + inferior_right_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+    inferior_left_shoulder_abductor_pwm = map(inferior_left_shoulder_abductor_pos + inferior_left_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+
+    superior_right_shoulder_abductor_pwm = map(superior_right_shoulder_abductor_pos + superior_right_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+    superior_left_shoulder_abductor_pwm = map(superior_left_shoulder_abductor_pos + superior_left_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+    inferior_right_shoulder_abductor_pwm = map(inferior_right_shoulder_abductor_pos + inferior_right_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+    inferior_left_shoulder_abductor_pwm = map(inferior_left_shoulder_abductor_pos + inferior_left_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+
+    superior_right_shoulder_abductor_pwm = map(superior_right_shoulder_abductor_pos + superior_right_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+    superior_left_shoulder_abductor_pwm = map(superior_left_shoulder_abductor_pos + superior_left_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+    inferior_right_shoulder_abductor_pwm = map(inferior_right_shoulder_abductor_pos + inferior_right_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+    inferior_left_shoulder_abductor_pwm = map(inferior_left_shoulder_abductor_pos + inferior_left_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+
+
+    pwm.setPWM(0, 0, superior_right_shoulder_abductor_pwm);
+    pwm.setPWM(1, 0, superior_left_shoulder_abductor_pwm);
+    pwm.setPWM(2, 0, inferior_right_shoulder_abductor_pwm);
+    pwm.setPWM(3, 0, inferior_left_shoulder_abductor_pwm);
+
+    pwm.setPWM(4, 0, superior_right_shoulder_abductor_pwm);
+    pwm.setPWM(5, 0, superior_left_shoulder_abductor_pwm);
+    pwm.setPWM(6, 0, inferior_right_shoulder_abductor_pwm);
+    pwm.setPWM(7, 0, inferior_left_shoulder_abductor_pwm);
+
+    pwm.setPWM(8, 0, superior_right_shoulder_abductor_pwm);
+    pwm.setPWM(9, 0, superior_left_shoulder_abductor_pwm);
+    pwm.setPWM(10, 0, inferior_right_shoulder_abductor_pwm);
+    pwm.setPWM(11, 0, inferior_left_shoulder_abductor_pwm);
+    
 
     // pwmfreq = map(deg, 0, 180, SERVOMIN, SERVOMAX);
     // For each servo
