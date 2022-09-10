@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include <Servo.h>
 
 #include "pin_map.h"
 #include "robot_constant.h"
