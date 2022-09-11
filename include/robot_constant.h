@@ -1,6 +1,8 @@
 
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
+
+#include "gait_shape.h"
 /*
 extern Servo superior_right_shoulder_abductor;  // create servo object to control a servo
 extern Servo superior_left_shoulder_abductor;  // create servo object to control a servo
@@ -19,6 +21,8 @@ extern Servo inferior_left_forearm_extensor;  // create servo object to control 
 */
 
 extern Adafruit_PWMServoDriver pwm;// = Adafruit_PWMServoDriver();
+
+extern gaitShape gait;
 
 extern double superior_right_shoulder_abductor_pos;  // Stores servo position in degrees from 0 to 180
 extern double superior_left_shoulder_abductor_pos;  // Stores servo position in degrees from 0 to 180

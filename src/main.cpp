@@ -4,8 +4,11 @@
 #include "robot_constant.h"
 #include "kinematics.h"
 #include "motor_drive.h"
+#include "gait_shape.h"
+
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
+#include <TimedAction.h>
 
 /* This is the main file for the CANIS_mini arduino controller
  *  
@@ -18,25 +21,21 @@
  * 
  */ 
 
-/*
-Servo superior_right_shoulder_abductor;  // create servo object to control a servo
-Servo superior_left_shoulder_abductor;  // create servo object to control a servo
-Servo inferior_right_shoulder_abductor;  // create servo object to control a servo
-Servo inferior_left_shoulder_abductor;  // create servo object to control a servo
 
-Servo superior_right_arm_extensor;  // create servo object to control a servo
-Servo superior_left_arm_extensor;  // create servo object to control a servo
-Servo inferior_right_arm_extensor;  // create servo object to control a servo
-Servo inferior_left_arm_extensor;  // create servo object to control a servo
+// ####### Threads ########
+// TimedAction moveLegsThread = TimedAction(1000,updateLegs);
 
-Servo superior_right_forearm_extensor;  // create servo object to control a servo
-Servo superior_left_forearm_extensor;  // create servo object to control a servo
-Servo inferior_right_forearm_extensor;  // create servo object to control a servo
-Servo inferior_left_forearm_extensor;  // create servo object to control a servo
-*/
+
 
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
+gaitShape gait;
+
+double robot_height_desired = -0.17;
+
+double front_joint_dist = 0.1;
+double back_joint_dist = 0.1;
+double side_joint_dist = 0.1;
 
 double superior_right_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
 double superior_left_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
