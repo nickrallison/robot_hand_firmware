@@ -6,7 +6,7 @@
 #define RAD_TO_DEG 180.0 / M_PI
 
 void ik() {
-
+    /*
     superior_right_x = gait.frontRight.x;
     superior_right_y = gait.frontRight.y;
     superior_right_z = gait.frontRight.z;
@@ -23,17 +23,11 @@ void ik() {
     inferior_left_y = gait.rearLeft.y;
     inferior_left_z = gait.rearLeft.z;
 
+    */
     double superior_right_dyz = sqrt(superior_right_y * superior_right_y + superior_right_z * superior_right_z);
     double superior_left_dyz = sqrt(superior_left_y * superior_left_y + superior_left_z * superior_left_z);
     double inferior_right_dyz = sqrt(inferior_right_y * inferior_right_y + inferior_right_z * inferior_right_z);
     double inferior_left_dyz = sqrt(inferior_left_y * inferior_left_y + inferior_left_z * inferior_left_z);
-
-    /*
-    double superior_right_dyz;
-    double superior_left_dyz;
-    double inferior_right_dyz;
-    double inferior_left_dyz;
-    */
 
     // ######### Calculation Process Vars ############
     // From this repo: https://github.com/Technician13/QuadrupedInverseKinematic
