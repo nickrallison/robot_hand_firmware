@@ -40,7 +40,7 @@ double side_joint_dist = 0.1;
 double superior_right_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
 double superior_left_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
 double inferior_right_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
-double inferior_left_shoulder_abductor_pos = 90;  // Stores servo position in degrees from 0 to 180
+double inferior_left_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
 
 double superior_right_arm_extensor_pos = 0;  // Stores servo position in degrees from 0 to 180
 double superior_left_arm_extensor_pos = 0;  // Stores servo position in degrees from 0 to 180
@@ -52,8 +52,8 @@ double superior_left_forearm_extensor_pos = 0;  // Stores servo position in degr
 double inferior_right_forearm_extensor_pos = 0;  // Stores servo position in degrees from 0 to 180
 double inferior_left_forearm_extensor_pos = 0;  // Stores servo position in degrees from 0 to 180
 
-double superior_right_shoulder_abductor_offset = 0; // Stores servo position offset in degrees from 0 to 180
-double superior_left_shoulder_abductor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
+double superior_right_shoulder_abductor_offset = -40; // Stores servo position offset in degrees from 0 to 180
+double superior_left_shoulder_abductor_offset = 20;  // Stores servo position offset in degrees from 0 to 180
 double inferior_right_shoulder_abductor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
 double inferior_left_shoulder_abductor_offset = 0;  // Stores servo position offset in degrees from 0 to 180
 
@@ -115,8 +115,8 @@ void setup() {
 }
 
 void loop() {
-  for (double z = 0; z < 2*M_PI; z += 0.1) {
-    Serial.print("(");
+  //for (double z = 0; z < 2*M_PI; z += 0.1) {
+    /* Serial.print("(");
     Serial.print(inferior_left_x);
     Serial.print(", ");
     Serial.print(inferior_left_y);
@@ -125,14 +125,31 @@ void loop() {
     Serial.println(")");
     inferior_left_x = 0.0;
     inferior_left_y = 0.055;
-    inferior_left_z = -0.12 + 0.05 * sin(z);
-    ik();
+    inferior_left_z = -0.12 + 0.05 * sin(z);*/
+
+
+    //ik();
+    superior_right_shoulder_abductor_pos = 0;
+    superior_left_shoulder_abductor_pos = 0;
+    inferior_right_shoulder_abductor_pos = 0;
+    inferior_left_shoulder_abductor_pos = 0;
+
+    superior_right_arm_extensor_pos = 0;
+    superior_left_arm_extensor_pos = 0;
+    inferior_right_arm_extensor_pos = 0;
+    inferior_left_arm_extensor_pos = 0;
+
+    superior_right_forearm_extensor_pos = 0;
+    superior_left_forearm_extensor_pos = 0;
+    inferior_right_forearm_extensor_pos = 0;
+    inferior_left_forearm_extensor_pos = 0;
+
     command_motors();
     delay(50);
 
-    //Serial.print(superior_right_z);
+    Serial.println(map(superior_right_shoulder_abductor_pos + superior_right_shoulder_abductor_offset, -180, 180, 60, 520));
     //Serial.print('\n');
 
 
-  }
+  //}
 }

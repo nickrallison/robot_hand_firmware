@@ -29,20 +29,20 @@ void init_motors() {
 
 void command_motors() {
 
-    superior_right_shoulder_abductor_pwm = map(superior_right_shoulder_abductor_pos + superior_right_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
-    superior_left_shoulder_abductor_pwm = map(superior_left_shoulder_abductor_pos + superior_left_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
-    inferior_right_shoulder_abductor_pwm = map(inferior_right_shoulder_abductor_pos + inferior_right_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
-    inferior_left_shoulder_abductor_pwm = map(inferior_left_shoulder_abductor_pos + inferior_left_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+    superior_right_shoulder_abductor_pwm = map(superior_right_shoulder_abductor_pos + superior_right_shoulder_abductor_offset, -180, 180, SERVOMIN, SERVOMAX);
+    superior_left_shoulder_abductor_pwm = map(superior_left_shoulder_abductor_pos + superior_left_shoulder_abductor_offset, -180, 180, SERVOMIN, SERVOMAX);
+    inferior_right_shoulder_abductor_pwm = map(inferior_right_shoulder_abductor_pos + inferior_right_shoulder_abductor_offset, -180, 180, SERVOMIN, SERVOMAX);
+    inferior_left_shoulder_abductor_pwm = map(inferior_left_shoulder_abductor_pos + inferior_left_shoulder_abductor_offset, -180, 180, SERVOMIN, SERVOMAX);
 
-    superior_right_shoulder_abductor_pwm = map(superior_right_shoulder_abductor_pos + superior_right_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
-    superior_left_shoulder_abductor_pwm = map(superior_left_shoulder_abductor_pos + superior_left_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
-    inferior_right_shoulder_abductor_pwm = map(inferior_right_shoulder_abductor_pos + inferior_right_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
-    inferior_left_shoulder_abductor_pwm = map(inferior_left_shoulder_abductor_pos + inferior_left_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+    superior_right_arm_extensor_pwm = map(superior_right_arm_extensor_pos + superior_right_arm_extensor_offset, -180, 180, SERVOMIN, SERVOMAX);
+    superior_left_arm_extensor_pwm = map(superior_left_arm_extensor_pos + superior_left_arm_extensor_offset, -180, 180, SERVOMIN, SERVOMAX);
+    inferior_right_arm_extensor_pwm = map(inferior_right_arm_extensor_pos + inferior_right_arm_extensor_offset, -180, 180, SERVOMIN, SERVOMAX);
+    inferior_left_arm_extensor_pwm = map(inferior_left_arm_extensor_pos + inferior_left_arm_extensor_offset, -180, 180, SERVOMIN, SERVOMAX);
 
-    superior_right_shoulder_abductor_pwm = map(superior_right_shoulder_abductor_pos + superior_right_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
-    superior_left_shoulder_abductor_pwm = map(superior_left_shoulder_abductor_pos + superior_left_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
-    inferior_right_shoulder_abductor_pwm = map(inferior_right_shoulder_abductor_pos + inferior_right_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
-    inferior_left_shoulder_abductor_pwm = map(inferior_left_shoulder_abductor_pos + inferior_left_shoulder_abductor_offset, 0, 180, SERVOMIN, SERVOMAX);
+    superior_right_forearm_extensor_pwm = map(superior_right_forearm_extensor_pos + superior_right_forearm_extensor_offset, -180, 180, SERVOMIN, SERVOMAX);
+    superior_left_forearm_extensor_pwm = map(superior_left_forearm_extensor_pos + superior_left_forearm_extensor_offset, -180, 180, SERVOMIN, SERVOMAX);
+    inferior_right_forearm_extensor_pwm = map(inferior_right_forearm_extensor_pos + inferior_right_forearm_extensor_offset, -180, 180, SERVOMIN, SERVOMAX);
+    inferior_left_forearm_extensor_pwm = map(inferior_left_forearm_extensor_pos + inferior_left_forearm_extensor_offset, -180, 180, SERVOMIN, SERVOMAX);
 
 
     pwm.setPWM(0, 0, superior_right_shoulder_abductor_pwm);
@@ -50,14 +50,14 @@ void command_motors() {
     pwm.setPWM(2, 0, inferior_right_shoulder_abductor_pwm);
     pwm.setPWM(3, 0, inferior_left_shoulder_abductor_pwm);
 
-    pwm.setPWM(4, 0, superior_right_shoulder_abductor_pwm);
-    pwm.setPWM(5, 0, superior_left_shoulder_abductor_pwm);
-    pwm.setPWM(6, 0, inferior_right_shoulder_abductor_pwm);
-    pwm.setPWM(7, 0, inferior_left_shoulder_abductor_pwm);
+    pwm.setPWM(4, 0, superior_right_arm_extensor_pwm);
+    pwm.setPWM(5, 0, superior_left_arm_extensor_pwm);
+    pwm.setPWM(6, 0, inferior_right_arm_extensor_pwm);
+    pwm.setPWM(7, 0, inferior_left_arm_extensor_pwm);
 
-    pwm.setPWM(8, 0, superior_right_shoulder_abductor_pwm);
-    pwm.setPWM(9, 0, superior_left_shoulder_abductor_pwm);
-    pwm.setPWM(10, 0, inferior_right_shoulder_abductor_pwm);
-    pwm.setPWM(11, 0, inferior_left_shoulder_abductor_pwm);
+    pwm.setPWM(8, 0, superior_right_forearm_extensor_pwm);
+    pwm.setPWM(9, 0, superior_left_forearm_extensor_pwm);
+    pwm.setPWM(10, 0, inferior_right_forearm_extensor_pwm);
+    pwm.setPWM(11, 0, inferior_left_forearm_extensor_pwm);
 
 }
