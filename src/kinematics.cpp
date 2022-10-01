@@ -71,20 +71,20 @@ void ik() {
     double inferior_right_a2 = -acos((arm_length + inferior_right_n) / inferior_right_lxz);
     double inferior_left_a2 = -acos((arm_length + inferior_left_n) / inferior_left_lxz);
 
-    superior_right_forearm_extensor_pos = acos(superior_right_n / forearm_length) * RAD_TO_DEG;
-    superior_left_forearm_extensor_pos = acos(superior_left_n / forearm_length) * RAD_TO_DEG;
-    inferior_right_forearm_extensor_pos = acos(inferior_right_n / forearm_length) * RAD_TO_DEG;
-    inferior_left_forearm_extensor_pos = acos(inferior_left_n / forearm_length) * RAD_TO_DEG;
+    superior_right_forearm_extensor_pos = acos(superior_right_n / forearm_length);
+    superior_left_forearm_extensor_pos = acos(superior_left_n / forearm_length);
+    inferior_right_forearm_extensor_pos = acos(inferior_right_n / forearm_length);
+    inferior_left_forearm_extensor_pos = acos(inferior_left_n / forearm_length);
 
-    superior_right_arm_extensor_pos = (superior_right_a1 + superior_right_a2) * RAD_TO_DEG;
-    superior_left_arm_extensor_pos = (superior_left_a1 + superior_left_a2) * RAD_TO_DEG;
-    inferior_right_arm_extensor_pos = (inferior_right_a1 + inferior_right_a2) * RAD_TO_DEG;
-    inferior_left_arm_extensor_pos = (inferior_left_a1 + inferior_left_a2) * RAD_TO_DEG;
+    superior_right_arm_extensor_pos = -(superior_right_a1 + superior_right_a2);
+    superior_left_arm_extensor_pos = -(superior_left_a1 + superior_left_a2);
+    inferior_right_arm_extensor_pos = -(inferior_right_a1 + inferior_right_a2);
+    inferior_left_arm_extensor_pos = -(inferior_left_a1 + inferior_left_a2);
 
-    superior_right_shoulder_abductor_pos = (-(superior_right_g1 + superior_right_g2) + M_PI) * RAD_TO_DEG;
-    superior_left_shoulder_abductor_pos = (-(superior_left_g1 + superior_left_g2) + M_PI) * RAD_TO_DEG;
-    inferior_right_shoulder_abductor_pos = (-(inferior_right_g1 + inferior_right_g2) + M_PI) * RAD_TO_DEG;
-    inferior_left_shoulder_abductor_pos = (-(inferior_left_g1 + inferior_left_g2) + M_PI) * RAD_TO_DEG;
+    superior_right_shoulder_abductor_pos = (-(superior_right_g1 + superior_right_g2));
+    superior_left_shoulder_abductor_pos = (-(superior_left_g1 + superior_left_g2));
+    inferior_right_shoulder_abductor_pos = (-(inferior_right_g1 + inferior_right_g2));
+    inferior_left_shoulder_abductor_pos = (-(inferior_left_g1 + inferior_left_g2));
 }
 
 void fk() {

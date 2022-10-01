@@ -40,7 +40,7 @@ double side_joint_dist = 0.1;
 double superior_right_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
 double superior_left_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
 double inferior_right_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
-double inferior_left_shoulder_abductor_pos = 30;  // Stores servo position in degrees from 0 to 180
+double inferior_left_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
 
 double superior_right_arm_extensor_pos = 0;  // Stores servo position in degrees from 0 to 180
 double superior_left_arm_extensor_pos = 0;  // Stores servo position in degrees from 0 to 180
@@ -60,12 +60,12 @@ double inferior_left_shoulder_abductor_offset = 44;  // Stores servo position of
 double superior_right_arm_extensor_offset = -13;  // Stores servo position offset in degrees from 0 to 180
 double superior_left_arm_extensor_offset = -20;  // Stores servo position offset in degrees from 0 to 180
 double inferior_right_arm_extensor_offset = -13;  // Stores servo position offset in degrees from 0 to 180
-double inferior_left_arm_extensor_offset = 25;  // Stores servo position offset in degrees from 0 to 180
+double inferior_left_arm_extensor_offset = 10;  // Stores servo position offset in degrees from 0 to 180
 
 double superior_right_forearm_extensor_offset = -110;  // Stores servo position offset in degrees from 0 to 180
 double superior_left_forearm_extensor_offset = 204;  // Stores servo position offset in degrees from 0 to 180
 double inferior_right_forearm_extensor_offset = -179;  // Stores servo position offset in degrees from 0 to 180
-double inferior_left_forearm_extensor_offset = 153;  // Stores servo position offset in degrees from 0 to 180
+double inferior_left_forearm_extensor_offset = 150;  // Stores servo position offset in degrees from 0 to 180
 
 int superior_right_shoulder_abductor_pwm = 0;  // Stores servo position in degrees from 0 to 180
 int superior_left_shoulder_abductor_pwm = 0;  // Stores servo position in degrees from 0 to 180
@@ -83,20 +83,20 @@ int inferior_right_forearm_extensor_pwm = 0;  // Stores servo position in degree
 int inferior_left_forearm_extensor_pwm = 0;  // Stores servo position in degrees from 0 to 180
 
 double superior_right_x = 0;    // Stores bot legs x, y, & z positions for each leg
-double superior_right_y = 0;    // Stores bot legs x, y, & z positions for each leg
-double superior_right_z = 0;    // Stores bot legs x, y, & z positions for each leg
+double superior_right_y = -0.055;    // Stores bot legs x, y, & z positions for each leg
+double superior_right_z = 0.1;    // Stores bot legs x, y, & z positions for each leg
 
 double superior_left_x = 0;     // Stores bot legs x, y, & z positions for each leg
-double superior_left_y = 0;     // Stores bot legs x, y, & z positions for each leg
-double superior_left_z = 0;     // Stores bot legs x, y, & z positions for each leg
+double superior_left_y = -0.055;     // Stores bot legs x, y, & z positions for each leg
+double superior_left_z = 0.1;     // Stores bot legs x, y, & z positions for each leg
 
 double inferior_right_x = 0;    // Stores bot legs x, y, & z positions for each leg
-double inferior_right_y = 0;    // Stores bot legs x, y, & z positions for each leg
-double inferior_right_z = 0;    // Stores bot legs x, y, & z positions for each leg
+double inferior_right_y = -0.055;    // Stores bot legs x, y, & z positions for each leg
+double inferior_right_z = 0.1;    // Stores bot legs x, y, & z positions for each leg
 
 double inferior_left_x = 0;     // Stores bot legs x, y, & z positions for each leg
-double inferior_left_y = 0;     // Stores bot legs x, y, & z positions for each leg
-double inferior_left_z = 0;     // Stores bot legs x, y, & z positions for each leg
+double inferior_left_y = -0.055;     // Stores bot legs x, y, & z positions for each leg
+double inferior_left_z = 0.1;     // Stores bot legs x, y, & z positions for each leg
 
 // Canis Body Params, measure from joint center
 double canis_length = 0.215;
@@ -129,51 +129,37 @@ void loop() {
 
 
     //ik();
-    /*superior_right_shoulder_abductor_pos = 0;
-    superior_left_shoulder_abductor_pos = 0;
-    inferior_right_shoulder_abductor_pos = 0;
-    inferior_left_shoulder_abductor_pos = 0;
+    Serial.print("SR Abd ");
+    Serial.println(superior_right_shoulder_abductor_pos);
+    Serial.print("SL Abd ");
+    Serial.println(superior_left_shoulder_abductor_pos);
+    Serial.print("IR Abd ");
+    Serial.println(inferior_right_shoulder_abductor_pos);
+    Serial.print("IL Abd ");
+    Serial.println(inferior_left_shoulder_abductor_pos);
 
-    superior_right_arm_extensor_pos = 0;
-    superior_left_arm_extensor_pos = 0;
-    inferior_right_arm_extensor_pos = 0;
-    inferior_left_arm_extensor_pos = 0;
+    Serial.print("SR Arm Ext ");
+    Serial.println(superior_right_arm_extensor_pos);
+    Serial.print("SL Arm Ext ");
+    Serial.println(superior_left_arm_extensor_pos);
+    Serial.print("IR Arm Ext ");
+    Serial.println(inferior_right_arm_extensor_pos);
+    Serial.print("IL Arm Ext ");
+    Serial.println(inferior_left_arm_extensor_pos);
 
-    superior_right_forearm_extensor_pos = 0;
-    superior_left_forearm_extensor_pos = 0;
-    inferior_right_forearm_extensor_pos = 0;
-    inferior_left_forearm_extensor_pos = 0;*/
-
+    Serial.print("SR Forearm Ext ");
+    Serial.println(superior_right_forearm_extensor_pos);
+    Serial.print("SL Forearm Ext ");
+    Serial.println(superior_left_forearm_extensor_pos);
+    Serial.print("IR Forearm Ext ");
+    Serial.println(inferior_right_forearm_extensor_pos);
+    Serial.print("IL Forearm Ext ");
+    Serial.println(inferior_left_forearm_extensor_pos);
     command_motors();
+
+
     
-    Serial.print("Sup Right shoulder ");
-    Serial.println(superior_right_shoulder_abductor_pwm);
-    Serial.print("Sup Left shoulder ");
-    Serial.println(superior_left_shoulder_abductor_pwm);
-    Serial.print("Inf Right shoulder ");
-    Serial.println(inferior_right_shoulder_abductor_pwm);
-    Serial.print("Inf Left shoulder ");
-    Serial.println(inferior_left_shoulder_abductor_pwm);
-
-    Serial.print("Sup Right arm ");
-    Serial.println(superior_right_arm_extensor_pwm);
-    Serial.print("Sup Left arm ");
-    Serial.println(superior_left_arm_extensor_pwm);
-    Serial.print("Inf Right arm ");
-    Serial.println(inferior_right_arm_extensor_pwm);
-    Serial.print("Inf Left arm ");
-    Serial.println(inferior_left_arm_extensor_pwm);
-
-    Serial.print("Sup Right forearm ");
-    Serial.println(superior_right_forearm_extensor_pwm);
-    Serial.print("Sup Left forearm ");
-    Serial.println(superior_left_forearm_extensor_pwm);
-    Serial.print("Inf Right forearm ");
-    Serial.println(inferior_right_forearm_extensor_pwm);
-    Serial.print("Inf Left forearm ");
-    Serial.println(inferior_left_forearm_extensor_pwm);
-
-    delay(50);
+    
 
     //Serial.print('\n');
 
