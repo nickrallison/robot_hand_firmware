@@ -38,7 +38,7 @@ double back_joint_dist = 0.1;
 double side_joint_dist = 0.1;
 
 double superior_right_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
-double superior_left_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
+double superior_left_shoulder_abductor_pos = 20;  // Stores servo position in degrees from 0 to 180
 double inferior_right_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
 double inferior_left_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
 
@@ -52,20 +52,20 @@ double superior_left_forearm_extensor_pos = 0;  // Stores servo position in degr
 double inferior_right_forearm_extensor_pos = 0;  // Stores servo position in degrees from 0 to 180
 double inferior_left_forearm_extensor_pos = 0;  // Stores servo position in degrees from 0 to 180
 
-double superior_right_shoulder_abductor_offset = -40; // Stores servo position offset in degrees from 0 to 180
-double superior_left_shoulder_abductor_offset = 12;  // Stores servo position offset in degrees from 0 to 180
-double inferior_right_shoulder_abductor_offset = 55;  // Stores servo position offset in degrees from 0 to 180
-double inferior_left_shoulder_abductor_offset = 35;  // Stores servo position offset in degrees from 0 to 180
+double superior_right_shoulder_abductor_offset = -52; // Stores servo position offset in degrees from 0 to 180
+double superior_left_shoulder_abductor_offset = 15;  // Stores servo position offset in degrees from 0 to 180
+double inferior_right_shoulder_abductor_offset = 70;  // Stores servo position offset in degrees from 0 to 180
+double inferior_left_shoulder_abductor_offset = 44;  // Stores servo position offset in degrees from 0 to 180
 
-double superior_right_arm_extensor_offset = -10;  // Stores servo position offset in degrees from 0 to 180
-double superior_left_arm_extensor_offset = -15;  // Stores servo position offset in degrees from 0 to 180
-double inferior_right_arm_extensor_offset = -10;  // Stores servo position offset in degrees from 0 to 180
-double inferior_left_arm_extensor_offset = 20;  // Stores servo position offset in degrees from 0 to 180
+double superior_right_arm_extensor_offset = -13;  // Stores servo position offset in degrees from 0 to 180
+double superior_left_arm_extensor_offset = -20;  // Stores servo position offset in degrees from 0 to 180
+double inferior_right_arm_extensor_offset = -13;  // Stores servo position offset in degrees from 0 to 180
+double inferior_left_arm_extensor_offset = 25;  // Stores servo position offset in degrees from 0 to 180
 
-double superior_right_forearm_extensor_offset = -85;  // Stores servo position offset in degrees from 0 to 180
-double superior_left_forearm_extensor_offset = 160;  // Stores servo position offset in degrees from 0 to 180
-double inferior_right_forearm_extensor_offset = -140;  // Stores servo position offset in degrees from 0 to 180
-double inferior_left_forearm_extensor_offset = 120;  // Stores servo position offset in degrees from 0 to 180
+double superior_right_forearm_extensor_offset = -110;  // Stores servo position offset in degrees from 0 to 180
+double superior_left_forearm_extensor_offset = 204;  // Stores servo position offset in degrees from 0 to 180
+double inferior_right_forearm_extensor_offset = -179;  // Stores servo position offset in degrees from 0 to 180
+double inferior_left_forearm_extensor_offset = 153;  // Stores servo position offset in degrees from 0 to 180
 
 int superior_right_shoulder_abductor_pwm = 0;  // Stores servo position in degrees from 0 to 180
 int superior_left_shoulder_abductor_pwm = 0;  // Stores servo position in degrees from 0 to 180
