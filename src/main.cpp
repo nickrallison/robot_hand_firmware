@@ -38,9 +38,9 @@ double back_joint_dist = 0.1;
 double side_joint_dist = 0.1;
 
 double superior_right_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
-double superior_left_shoulder_abductor_pos = 20;  // Stores servo position in degrees from 0 to 180
+double superior_left_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
 double inferior_right_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
-double inferior_left_shoulder_abductor_pos = 0;  // Stores servo position in degrees from 0 to 180
+double inferior_left_shoulder_abductor_pos = 30;  // Stores servo position in degrees from 0 to 180
 
 double superior_right_arm_extensor_pos = 0;  // Stores servo position in degrees from 0 to 180
 double superior_left_arm_extensor_pos = 0;  // Stores servo position in degrees from 0 to 180

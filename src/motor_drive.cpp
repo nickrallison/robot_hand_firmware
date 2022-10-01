@@ -30,9 +30,9 @@ void init_motors() {
 void command_motors() {
 
     superior_right_shoulder_abductor_pwm = map(superior_right_shoulder_abductor_pos, -58, 67.38, 160, 440) + superior_right_shoulder_abductor_offset;
-    superior_left_shoulder_abductor_pwm = map(-superior_left_shoulder_abductor_pos, 60, 520, SERVOMIN, SERVOMAX) + superior_left_shoulder_abductor_offset;
-    inferior_right_shoulder_abductor_pwm = map(inferior_right_shoulder_abductor_pos, -180, 180, SERVOMIN, SERVOMAX) + inferior_right_shoulder_abductor_offset;
-    inferior_left_shoulder_abductor_pwm = map(inferior_left_shoulder_abductor_pos, -180, 180, SERVOMIN, SERVOMAX) + inferior_left_shoulder_abductor_offset;
+    superior_left_shoulder_abductor_pwm = map(superior_left_shoulder_abductor_pos, -58, 67.38, 420, 140) + superior_left_shoulder_abductor_offset;
+    inferior_right_shoulder_abductor_pwm = map(inferior_right_shoulder_abductor_pos, -58, 67.38, 420, 140) + inferior_right_shoulder_abductor_offset;
+    inferior_left_shoulder_abductor_pwm = map(inferior_left_shoulder_abductor_pos, -58, 67.38, 160, 440) + inferior_left_shoulder_abductor_offset;
 
     superior_right_arm_extensor_pwm = map(superior_right_arm_extensor_pos, -180, 180, SERVOMIN, SERVOMAX) + superior_right_arm_extensor_offset;
     superior_left_arm_extensor_pwm = map(superior_left_arm_extensor_pos, -180, 180, SERVOMIN, SERVOMAX) + superior_left_arm_extensor_offset;
