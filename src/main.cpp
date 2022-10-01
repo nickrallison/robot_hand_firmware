@@ -63,9 +63,9 @@ double inferior_right_arm_extensor_offset = -10;  // Stores servo position offse
 double inferior_left_arm_extensor_offset = 20;  // Stores servo position offset in degrees from 0 to 180
 
 double superior_right_forearm_extensor_offset = -85;  // Stores servo position offset in degrees from 0 to 180
-double superior_left_forearm_extensor_offset = 150;  // Stores servo position offset in degrees from 0 to 180
-double inferior_right_forearm_extensor_offset = 110;  // Stores servo position offset in degrees from 0 to 180
-double inferior_left_forearm_extensor_offset = -130;  // Stores servo position offset in degrees from 0 to 180
+double superior_left_forearm_extensor_offset = 160;  // Stores servo position offset in degrees from 0 to 180
+double inferior_right_forearm_extensor_offset = -140;  // Stores servo position offset in degrees from 0 to 180
+double inferior_left_forearm_extensor_offset = 120;  // Stores servo position offset in degrees from 0 to 180
 
 int superior_right_shoulder_abductor_pwm = 0;  // Stores servo position in degrees from 0 to 180
 int superior_left_shoulder_abductor_pwm = 0;  // Stores servo position in degrees from 0 to 180
@@ -146,19 +146,31 @@ void loop() {
 
     command_motors();
     
+    Serial.print("Sup Right shoulder ");
     Serial.println(superior_right_shoulder_abductor_pwm);
+    Serial.print("Sup Left shoulder ");
     Serial.println(superior_left_shoulder_abductor_pwm);
+    Serial.print("Inf Right shoulder ");
     Serial.println(inferior_right_shoulder_abductor_pwm);
+    Serial.print("Inf Left shoulder ");
     Serial.println(inferior_left_shoulder_abductor_pwm);
 
+    Serial.print("Sup Right arm ");
     Serial.println(superior_right_arm_extensor_pwm);
+    Serial.print("Sup Left arm ");
     Serial.println(superior_left_arm_extensor_pwm);
+    Serial.print("Inf Right arm ");
     Serial.println(inferior_right_arm_extensor_pwm);
+    Serial.print("Inf Left arm ");
     Serial.println(inferior_left_arm_extensor_pwm);
 
+    Serial.print("Sup Right forearm ");
     Serial.println(superior_right_forearm_extensor_pwm);
+    Serial.print("Sup Left forearm ");
     Serial.println(superior_left_forearm_extensor_pwm);
+    Serial.print("Inf Right forearm ");
     Serial.println(inferior_right_forearm_extensor_pwm);
+    Serial.print("Inf Left forearm ");
     Serial.println(inferior_left_forearm_extensor_pwm);
 
     delay(50);

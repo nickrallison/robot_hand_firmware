@@ -30,7 +30,7 @@ void init_motors() {
 void command_motors() {
 
     superior_right_shoulder_abductor_pwm = map(superior_right_shoulder_abductor_pos + superior_right_shoulder_abductor_offset, -180, 180, SERVOMIN, SERVOMAX);
-    superior_left_shoulder_abductor_pwm = map(superior_left_shoulder_abductor_pos + superior_left_shoulder_abductor_offset, -180, 180, SERVOMIN, SERVOMAX);
+    superior_left_shoulder_abductor_pwm = map(-superior_left_shoulder_abductor_pos + superior_left_shoulder_abductor_offset, -180, 180, SERVOMIN, SERVOMAX);
     inferior_right_shoulder_abductor_pwm = map(inferior_right_shoulder_abductor_pos + inferior_right_shoulder_abductor_offset, -180, 180, SERVOMIN, SERVOMAX);
     inferior_left_shoulder_abductor_pwm = map(inferior_left_shoulder_abductor_pos + inferior_left_shoulder_abductor_offset, -180, 180, SERVOMIN, SERVOMAX);
 
