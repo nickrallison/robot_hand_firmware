@@ -81,10 +81,10 @@ void ik() {
     inferior_right_arm_extensor_pos = -(inferior_right_a1 + inferior_right_a2);
     inferior_left_arm_extensor_pos = -(inferior_left_a1 + inferior_left_a2);
 
-    superior_right_shoulder_abductor_pos = (-(superior_right_g1 + superior_right_g2));
-    superior_left_shoulder_abductor_pos = (-(superior_left_g1 + superior_left_g2));
-    inferior_right_shoulder_abductor_pos = (-(inferior_right_g1 + inferior_right_g2));
-    inferior_left_shoulder_abductor_pos = (-(inferior_left_g1 + inferior_left_g2));
+    superior_right_shoulder_abductor_pos = (-(superior_right_g1 + superior_right_g2)) + M_PI;
+    superior_left_shoulder_abductor_pos = (-(superior_left_g1 + superior_left_g2)) + M_PI;
+    inferior_right_shoulder_abductor_pos = (-(inferior_right_g1 + inferior_right_g2)) + M_PI;
+    inferior_left_shoulder_abductor_pos = (-(inferior_left_g1 + inferior_left_g2)) + M_PI;
 }
 
 void fk() {
