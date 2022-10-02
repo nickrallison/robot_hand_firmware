@@ -18,31 +18,28 @@ uint8_t servonum = 0;
 void init_motors() {
 
     pwm.begin();
-
     Serial.println("Initting");
-
     pwm.setOscillatorFrequency(27000000); //set w/ ossicloscope?
-    pwm.setPWMFreq(SERVO_FREQ);  
-    
+    pwm.setPWMFreq(SERVO_FREQ);
 
 }
 
 void command_motors() {
 
-    superior_right_shoulder_abductor_pwm = map(superior_right_shoulder_abductor_pos, -1.01, 1.176, 160, 440) + superior_right_shoulder_abductor_offset;
-    superior_left_shoulder_abductor_pwm = map(superior_left_shoulder_abductor_pos, -1.01, 1.176, 420, 140) + superior_left_shoulder_abductor_offset;
-    inferior_right_shoulder_abductor_pwm = map(inferior_right_shoulder_abductor_pos, -1.01, 1.176, 420, 140) + inferior_right_shoulder_abductor_offset;
-    inferior_left_shoulder_abductor_pwm = map(inferior_left_shoulder_abductor_pos, -1.01, 1.176, 160, 440) + inferior_left_shoulder_abductor_offset;
+    superior_right_shoulder_abductor_pwm = map2(superior_right_shoulder_abductor_pos, -1.104, 1.2736, 160, 440) + superior_right_shoulder_abductor_offset;
+    superior_left_shoulder_abductor_pwm = map2(superior_left_shoulder_abductor_pos, -1.104, 1.2736, 420, 140) + superior_left_shoulder_abductor_offset;
+    inferior_right_shoulder_abductor_pwm = map2(inferior_right_shoulder_abductor_pos, -1.104, 1.2736, 420, 140) + inferior_right_shoulder_abductor_offset;
+    inferior_left_shoulder_abductor_pwm = map2(inferior_left_shoulder_abductor_pos, -1.104, 1.2736, 160, 440) + inferior_left_shoulder_abductor_offset;
 
-    superior_right_arm_extensor_pwm = map(superior_right_arm_extensor_pos, -1.78, 1.61, 500, 100) + superior_right_arm_extensor_offset;
-    superior_left_arm_extensor_pwm = map(superior_left_arm_extensor_pos, -1.78, 1.61, 80, 480) + superior_left_arm_extensor_offset;
-    inferior_right_arm_extensor_pwm = map(inferior_right_arm_extensor_pos, -1.45, 1.69, 460, 90) + inferior_right_arm_extensor_offset;
-    inferior_left_arm_extensor_pwm = map(inferior_left_arm_extensor_pos, -1.45, 1.69, 120, 490) + inferior_left_arm_extensor_offset;
+    superior_right_arm_extensor_pwm = map2(superior_right_arm_extensor_pos, -1.7831, 1.6133, 500, 100) + superior_right_arm_extensor_offset;
+    superior_left_arm_extensor_pwm = map2(superior_left_arm_extensor_pos, -1.7831, 1.6133, 80, 480) + superior_left_arm_extensor_offset;
+    inferior_right_arm_extensor_pwm = map2(inferior_right_arm_extensor_pos, -1.4434, 1.6982, 460, 90) + inferior_right_arm_extensor_offset;
+    inferior_left_arm_extensor_pwm = map2(inferior_left_arm_extensor_pos, -1.4434, 1.6982, 120, 490) + inferior_left_arm_extensor_offset;
 
-    superior_right_forearm_extensor_pwm = map(superior_right_forearm_extensor_pos, -0.94, 2.72, 180, 610) + superior_right_forearm_extensor_offset;
-    superior_left_forearm_extensor_pwm = map(superior_left_forearm_extensor_pos, 0, 2.89, 290, -40) + superior_left_forearm_extensor_offset;
-    inferior_right_forearm_extensor_pwm = map(inferior_right_forearm_extensor_pos, -0.26, 2.71, 260, 630) + inferior_right_forearm_extensor_offset;
-    inferior_left_forearm_extensor_pwm = map(inferior_left_forearm_extensor_pos, -0.33, 2.46, 330, 0) + inferior_left_forearm_extensor_offset;
+    superior_right_forearm_extensor_pwm = map2(superior_right_forearm_extensor_pos, -0.933987, 2.7171, 180, 610) + superior_right_forearm_extensor_offset;
+    superior_left_forearm_extensor_pwm = map2(superior_left_forearm_extensor_pos, 0, 2.80196, 290, -40) + superior_left_forearm_extensor_offset;
+    inferior_right_forearm_extensor_pwm = map2(inferior_right_forearm_extensor_pos, -0.2547, 2.8869, 260, 630) + inferior_right_forearm_extensor_offset;
+    inferior_left_forearm_extensor_pwm = map2(inferior_left_forearm_extensor_pos, -0.33963, 2.46233, 330, 0) + inferior_left_forearm_extensor_offset;
 
 
     pwm.setPWM(0, 0, superior_right_shoulder_abductor_pwm);
@@ -60,4 +57,11 @@ void command_motors() {
     pwm.setPWM(10, 0, inferior_right_forearm_extensor_pwm);
     pwm.setPWM(11, 0, inferior_left_forearm_extensor_pwm);
 
+}
+
+double map2(double input, double x1, double x2, double y1, double y2) {
+    if (input <= x1) return y1;
+    if (input >= x2) return y2;
+    double slope = (y2 - y1) / (x2 - x1);
+    return (slope * (input - x1) + y1);
 }
