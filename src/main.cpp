@@ -84,19 +84,19 @@ int inferior_left_forearm_extensor_pwm = 0;  // Stores servo position in degrees
 
 double superior_right_x = 0;    // Stores bot legs x, y, & z positions for each leg
 double superior_right_y = 0.055;    // Stores bot legs x, y, & z positions for each leg
-double superior_right_z = -0.1;    // Stores bot legs x, y, & z positions for each leg
+double superior_right_z = -0.15;    // Stores bot legs x, y, & z positions for each leg
 
 double superior_left_x = 0;     // Stores bot legs x, y, & z positions for each leg
 double superior_left_y = 0.055;     // Stores bot legs x, y, & z positions for each leg
-double superior_left_z = -0.1;     // Stores bot legs x, y, & z positions for each leg
+double superior_left_z = -0.15;     // Stores bot legs x, y, & z positions for each leg
 
-double inferior_right_x = 0;    // Stores bot legs x, y, & z positions for each leg
+double inferior_right_x = -0.05;    // Stores bot legs x, y, & z positions for each leg
 double inferior_right_y = 0.055;    // Stores bot legs x, y, & z positions for each leg
-double inferior_right_z = -0.1;    // Stores bot legs x, y, & z positions for each leg
+double inferior_right_z = -0.15;    // Stores bot legs x, y, & z positions for each leg
 
-double inferior_left_x = 0;     // Stores bot legs x, y, & z positions for each leg
+double inferior_left_x = -0.05;     // Stores bot legs x, y, & z positions for each leg
 double inferior_left_y = 0.055;     // Stores bot legs x, y, & z positions for each leg
-double inferior_left_z = -0.1;     // Stores bot legs x, y, & z positions for each leg
+double inferior_left_z = -0.15;     // Stores bot legs x, y, & z positions for each leg
 
 // Canis Body Params, measure from joint center
 double canis_length = 0.215;
@@ -117,10 +117,10 @@ void setup() {
 void loop() {
 
   for (double z = 0; z < 2*M_PI; z += 0.01) {
-    superior_right_z = -0.1 + 0.05 * sin(z);
-    superior_left_z = -0.1 + 0.05 * sin(z);
-    inferior_right_z = -0.1 + 0.05 * sin(z);
-    inferior_left_z = -0.1 + 0.05 * sin(z);
+    superior_right_z = -0.15 + 0.05 * sin(z);
+    superior_left_z = -0.15 + 0.05 * sin(z);
+    inferior_right_z = -0.15 + 0.05 * sin(z);
+    inferior_left_z = -0.15 + 0.05 * sin(z);
     ik();
     command_motors();
     delay(0.1);
