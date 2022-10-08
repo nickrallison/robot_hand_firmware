@@ -8,7 +8,6 @@
 
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
-#include <TimedAction.h>
 
 /* This is the main file for the CANIS_mini arduino controller
  *  
