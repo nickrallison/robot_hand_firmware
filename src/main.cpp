@@ -8,7 +8,6 @@
 
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
-#include <TimedAction.h>
 
 /* This is the main file for the CANIS_mini arduino controller
  *  
@@ -116,7 +115,7 @@ void setup() {
 
 void loop() {
 
-  for (double z = 0; z < 2*M_PI; z += 0.01) {
+  for (double z = 0; z < 2 * M_PI; z += 0.01) {
     superior_right_z = -0.15 + 0.05 * sin(z);
     superior_left_z = -0.15 + 0.05 * sin(z);
     inferior_right_z = -0.15 + 0.05 * sin(z);
@@ -127,7 +126,7 @@ void loop() {
   }
 
     //ik();
-    Serial.print("SR Abd ");
+    /*Serial.print("SR Abd ");
     Serial.println(superior_right_shoulder_abductor_pos);
     Serial.print("SL Abd ");
     Serial.println(superior_left_shoulder_abductor_pos);
@@ -152,7 +151,7 @@ void loop() {
     Serial.print("IR Forearm Ext ");
     Serial.println(inferior_right_forearm_extensor_pos);
     Serial.print("IL Forearm Ext ");
-    Serial.println(inferior_left_forearm_extensor_pos);
+    Serial.println(inferior_left_forearm_extensor_pos);*/
     //command_motors();
 
 
