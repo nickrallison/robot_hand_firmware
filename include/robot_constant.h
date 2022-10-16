@@ -4,20 +4,20 @@
 
 #include "gait_shape.h"
 /*
-extern Servo superior_right_shoulder_abductor;  // create servo object to control a servo
-extern Servo superior_left_shoulder_abductor;  // create servo object to control a servo
-extern Servo inferior_right_shoulder_abductor;  // create servo object to control a servo
-extern Servo inferior_left_shoulder_abductor;  // create servo object to control a servo
+superior_right_shoulder_abductor;
+superior_left_shoulder_abductor;
+inferior_right_shoulder_abductor;
+inferior_left_shoulder_abductor;
 
-extern Servo superior_right_arm_extensor;  // create servo object to control a servo
-extern Servo superior_left_arm_extensor;  // create servo object to control a servo
-extern Servo inferior_right_arm_extensor;  // create servo object to control a servo
-extern Servo inferior_left_arm_extensor;  // create servo object to control a servo
+superior_right_arm_extensor;
+superior_left_arm_extensor;
+inferior_right_arm_extensor;
+inferior_left_arm_extensor;
 
-extern Servo superior_right_forearm_extensor;  // create servo object to control a servo
-extern Servo superior_left_forearm_extensor;  // create servo object to control a servo
-extern Servo inferior_right_forearm_extensor;  // create servo object to control a servo
-extern Servo inferior_left_forearm_extensor;  // create servo object to control a servo
+superior_right_forearm_extensor;
+superior_left_forearm_extensor;
+inferior_right_forearm_extensor;
+inferior_left_forearm_extensor;
 */
 
 extern Adafruit_PWMServoDriver pwm;// = Adafruit_PWMServoDriver();
