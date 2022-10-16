@@ -97,9 +97,6 @@ double inferior_left_x = -0.05;     // Stores bot legs x, y, & z positions for e
 double inferior_left_y = 0.055;     // Stores bot legs x, y, & z positions for each leg
 double inferior_left_z = -0.15;     // Stores bot legs x, y, & z positions for each leg
 
-// Canis Body Params, measure from joint center
-double canis_length = 0.215;
-double canis_width = 0.23;
 
 double shoulder_length = 0.055;
 double arm_length = 0.105;
