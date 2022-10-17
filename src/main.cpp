@@ -5,6 +5,8 @@
 #include "kinematics.h"
 #include "motor_drive.h"
 #include "ros_connect.h"
+#include "multithreading.h"
+#include "access_point.h"
 
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
@@ -99,6 +101,7 @@ void setup() {
   Serial.println("Initting");
   init_motors();
   initROS();
+  initWifi();
 }
 
 void loop() {
@@ -114,4 +117,6 @@ void loop() {
   }*/
   
   nh.spinOnce();
+
+  //wifiThread.check();
 }

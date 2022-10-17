@@ -75,6 +75,7 @@ void initROS() {
   nh.subscribe(superior_left_forearm_extensor_sub);
   nh.subscribe(inferior_right_forearm_extensor_sub);
   nh.subscribe(inferior_left_forearm_extensor_sub);
+  
   // pub
   //nh.advertise(debugPub);
   // give serial_node.py a chance to get to know the topics

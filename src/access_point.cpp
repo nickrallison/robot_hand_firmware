@@ -1,32 +1,16 @@
+#include <Arduino.h>
 #include <WiFi.h>
 
-const char *ssid = "AC-ESP32";
-const char *passphrase = "987654321";
+void initWifi() {
+    const char* ssid           = "ESP32-Access-Point";                // SSID Name
+    const char* password       = "12345678";   // SSID Password - Set to NULL to have an open AP
+    const int   channel        = 10;                        // WiFi Channel number between 1 and 13
+    const bool  hide_SSID      = false;                     // To disable SSID broadcast -> SSID will not appear in a basic WiFi scan
+    const int   max_connection = 3;  
 
-IPAddress local_IP(192,168,4,22);
-IPAddress gateway(192,168,4,9);
-IPAddress subnet(255,255,255,0);
-
-void setup()
-{
-  Serial.begin(115200);
-  Serial.println();
-
-  Serial.print("Setting soft-AP configuration ... ");
-  Serial.println(WiFi.softAPConfig(local_IP, gateway, subnet) ? "Ready" : "Failed!");
-
-  Serial.print("Setting soft-AP ... ");
-  Serial.println(WiFi.softAP(ssid,passphrase) ? "Ready" : "Failed!");
-  //WiFi.softAP(ssid);
-  //WiFi.softAP(ssid, passphrase, channel, ssdi_hidden, max_connection)
-  
-  Serial.print("Soft-AP IP address = ");
-  Serial.println(WiFi.softAPIP());
-}
-
-void loop() {
-  Serial.print("[Server Connected] ");
-  Serial.println(WiFi.softAPIP());
-
-  delay(500);
+    Serial.println("\n[*] Creating AP");
+    WiFi.mode(WIFI_AP);
+    WiFi.softAP(ssid, password, channel, hide_SSID, max_connection);
+    Serial.print("[+] AP Created with IP Gateway ");
+    Serial.println(WiFi.softAPIP());
 }
