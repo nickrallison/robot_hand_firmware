@@ -1,0 +1,25 @@
+{
+  "frameworks": [
+    "arduino"
+  ],
+  "keywords": [
+    "timer",
+    "interval",
+    "trigger"
+  ],
+  "version": "1.6",
+  "platforms": [
+    "*"
+  ],
+  "downloadUrl": "https://playground.arduino.cc/uploads/Code/TimedAction-1_6/index.zip",
+  "name": "TimedAction",
+  "description": "Provide an easy way of triggering functions at a set interval",
+  "authors": [
+    {
+      "name": "Alexander Brevig",
+      "email": "alexanderbrevig@gmail.com"
+    }
+  ],
+  "export": {},
+  "homepage": "http://playground.arduino.cc/Code/TimedAction"
+}
