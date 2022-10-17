@@ -105,7 +105,7 @@ double forearm_length = 0.136;
 // myservo.write(pos); // To drive servo, must add in delay, amount tbd
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println("Initting");
   init_motors();
 }
