@@ -98,10 +98,12 @@ double forearm_length = 0.136;
 
 void setup() {
   Serial.begin(115200);
+  nh.getHardware()->setBaud(115200);
   Serial.println("Initting");
   init_motors();
   initROS();
   initWifi();
+  debug_msg.data = "Test";
 }
 
 void loop() {
@@ -115,7 +117,7 @@ void loop() {
     command_motors();
     delay(0.1);
   }*/
-  
+  debugPub.publish(&debug_msg);
   nh.spinOnce();
 
   //wifiThread.check();

@@ -3,6 +3,7 @@
 #include <ros.h>
 #include <ros/time.h>
 #include <std_msgs/Float64.h>
+#include <std_msgs/String.h>
 #include <tf/tf.h>
 
 NodeHandle nh;
@@ -22,9 +23,9 @@ std_msgs::Float64 superior_left_forearm_pos_msg;
 std_msgs::Float64 inferior_right_forearm_pos_msg;
 std_msgs::Float64 inferior_left_forearm_pos_msg;
 
+std_msgs::String debug_msg;
 
-
-//ros::Publisher debugPub("/teensy/debug", &printDebug);
+ros::Publisher debugPub("/debug", &debug_msg);
 
 ros::Subscriber<std_msgs::Float64> superior_right_shoulder_abductor_sub("/actuation/leg/shoulder/superior/right", &superior_right_shoulder_abductor_cb);
 ros::Subscriber<std_msgs::Float64> superior_left_shoulder_abductor_sub("/actuation/leg/shoulder/superior/left", &superior_left_shoulder_abductor_cb);
@@ -77,7 +78,7 @@ void initROS() {
   nh.subscribe(inferior_left_forearm_extensor_sub);
   
   // pub
-  //nh.advertise(debugPub);
+  nh.advertise(debugPub);
   // give serial_node.py a chance to get to know the topics
   nh.negotiateTopics();
 

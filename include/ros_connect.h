@@ -4,6 +4,7 @@
 #include <ros.h>
 #include <ros/time.h>
 #include <std_msgs/Float64.h>
+#include <std_msgs/String.h>
 #include <tf/tf.h>
 
 typedef ros::NodeHandle_<ArduinoHardware, 25, 25, 2048, 2048>
@@ -28,7 +29,9 @@ extern std_msgs::Float64 superior_left_forearm_pos_msg;
 extern std_msgs::Float64 inferior_right_forearm_pos_msg;
 extern std_msgs::Float64 inferior_left_forearm_pos_msg;
 
-//extern ros::Publisher publisher;
+extern std_msgs::String debug_msg;
+
+extern ros::Publisher debugPub;
 
 // init
 void initROS();
@@ -48,7 +51,5 @@ void superior_right_forearm_extensor_cb(const std_msgs::Float64 &superior_right_
 void superior_left_forearm_extensor_cb(const std_msgs::Float64 &superior_left_forearm_pos_msg);
 void inferior_right_forearm_extensor_cb(const std_msgs::Float64 &inferior_right_forearm_pos_msg);
 void inferior_left_forearm_extensor_cb(const std_msgs::Float64 &inferior_left_forearm_pos_msg);
-
-
 
 #endif  // INCLUDE_ROS_CONNECT_H
