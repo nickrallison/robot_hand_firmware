@@ -117,7 +117,7 @@ void loop() {
     command_motors();
     delay(0.1);
   }*/
-  debugPub.publish(&debug_msg);
+  //debugPub.publish(&debug_msg);
   nh.spinOnce();
 
   //wifiThread.check();
