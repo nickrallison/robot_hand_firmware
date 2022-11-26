@@ -7,11 +7,13 @@
 #include "ros_connect.h"
 #include "multithreading.h"
 #include "access_point.h"
+#include "imu.h"
 
 #include <Wire.h>
-#include <Adafruit_PWMServoDriver.h>
-#include <TimedAction.h>
 
+#include <Adafruit_PWMServoDriver.h>
+#include <Adafruit_MPU6050.h>
+#include <Adafruit_Sensor.h>
 
 
 /* This is the main file for the CANIS_mini arduino controller
@@ -26,9 +28,12 @@
  */ 
 
 //Threads
-TimedAction wifiThread = TimedAction(1000,wifiCheck);
+//TimedAction wifiThread = TimedAction(1000,wifiCheck);
 
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
+Adafruit_MPU6050 mpu = Adafruit_MPU6050();
+
+sensors_event_t a, g, temp;
 
 double superior_right_shoulder_abductor_pos = 0;
 double superior_left_shoulder_abductor_pos = 0;
@@ -103,22 +108,12 @@ void setup() {
   init_motors();
   initROS();
   initWifi();
-  debug_msg.data = "Test";
+  //debug_msg.data = "Test";
 }
 
 void loop() {
 
-  /*for (double z = 0; z < 2 * M_PI; z += 0.01) {
-    superior_right_z = -0.15 + 0.05 * sin(z);
-    superior_left_z = -0.15 + 0.05 * sin(z);
-    inferior_right_z = -0.15 + 0.05 * sin(z);
-    inferior_left_z = -0.15 + 0.05 * sin(z);
-    ik();
-    command_motors();
-    delay(0.1);
-  }*/
-  //debugPub.publish(&debug_msg);
   nh.spinOnce();
+  pub_imu_raw();
 
-  //wifiThread.check();
 }

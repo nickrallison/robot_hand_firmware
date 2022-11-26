@@ -1,24 +1,13 @@
 
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
-/*
-superior_right_shoulder_abductor;
-superior_left_shoulder_abductor;
-inferior_right_shoulder_abductor;
-inferior_left_shoulder_abductor;
-
-superior_right_arm_extensor;
-superior_left_arm_extensor;
-inferior_right_arm_extensor;
-inferior_left_arm_extensor;
-
-superior_right_forearm_extensor;
-superior_left_forearm_extensor;
-inferior_right_forearm_extensor;
-inferior_left_forearm_extensor;
-*/
+#include <Adafruit_MPU6050.h>
+#include <Adafruit_Sensor.h>
 
 extern Adafruit_PWMServoDriver pwm;
+extern Adafruit_MPU6050 mpu;
+
+extern sensors_event_t a, g, temp;
 
 extern double superior_right_shoulder_abductor_pos;
 extern double superior_left_shoulder_abductor_pos;

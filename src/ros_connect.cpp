@@ -4,6 +4,7 @@
 #include <ros/time.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/String.h>
+#include <geometry_msgs/PointStamped.h>
 #include <tf/tf.h>
 
 NodeHandle nh;
@@ -24,8 +25,12 @@ std_msgs::Float64 inferior_right_forearm_pos_msg;
 std_msgs::Float64 inferior_left_forearm_pos_msg;
 
 std_msgs::String debug_msg;
+geometry_msgs::PointStamped imu_accel_msg;
+geometry_msgs::PointStamped imu_gyro_msg;
 
-ros::Publisher debugPub("/debug", &debug_msg);
+ros::Publisher debug_pub("/debug", &debug_msg);
+ros::Publisher imu_accel_pub("/imu/raw/accel", &imu_accel_msg);
+ros::Publisher imu_gyro_pub("/imu/raw/gyro", &imu_gyro_msg);
 
 ros::Subscriber<std_msgs::Float64> superior_right_shoulder_abductor_sub("/actuation/leg/shoulder/superior/right", &superior_right_shoulder_abductor_cb);
 ros::Subscriber<std_msgs::Float64> superior_left_shoulder_abductor_sub("/actuation/leg/shoulder/superior/left", &superior_left_shoulder_abductor_cb);
@@ -78,7 +83,9 @@ void initROS() {
   nh.subscribe(inferior_left_forearm_extensor_sub);
   
   // pub
-  nh.advertise(debugPub);
+  nh.advertise(debug_pub);
+  nh.advertise(imu_accel_pub);
+  nh.advertise(imu_gyro_pub);
   // give serial_node.py a chance to get to know the topics
   nh.negotiateTopics();
 

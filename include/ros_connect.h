@@ -5,10 +5,11 @@
 #include <ros/time.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/String.h>
+#include <geometry_msgs/PointStamped.h>
 #include <tf/tf.h>
 
 typedef ros::NodeHandle_<ArduinoHardware, 25, 25, 2048, 2048>
-    NodeHandle;  // default 25, 25, 512, 512
+    NodeHandle; // default 25, 25, 512, 512
 
 // ====================ROS shit=========================================
 extern NodeHandle nh;
@@ -30,8 +31,12 @@ extern std_msgs::Float64 inferior_right_forearm_pos_msg;
 extern std_msgs::Float64 inferior_left_forearm_pos_msg;
 
 extern std_msgs::String debug_msg;
+extern geometry_msgs::PointStamped imu_accel_msg;
+extern geometry_msgs::PointStamped imu_gyro_msg;
 
-extern ros::Publisher debugPub;
+extern ros::Publisher debug_pub;
+extern ros::Publisher imu_accel_pub;
+extern ros::Publisher imu_gyro_pub;
 
 // init
 void initROS();
@@ -52,4 +57,4 @@ void superior_left_forearm_extensor_cb(const std_msgs::Float64 &superior_left_fo
 void inferior_right_forearm_extensor_cb(const std_msgs::Float64 &inferior_right_forearm_pos_msg);
 void inferior_left_forearm_extensor_cb(const std_msgs::Float64 &inferior_left_forearm_pos_msg);
 
-#endif  // INCLUDE_ROS_CONNECT_H
+#endif // INCLUDE_ROS_CONNECT_H
