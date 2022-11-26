@@ -5,7 +5,7 @@
 #include <ros/time.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/String.h>
-#include <geometry_msgs/PointStamped.h>
+#include <sensor_msgs/Imu.h>
 #include <tf/tf.h>
 
 typedef ros::NodeHandle_<ArduinoHardware, 25, 25, 2048, 2048>
@@ -31,12 +31,10 @@ extern std_msgs::Float64 inferior_right_forearm_pos_msg;
 extern std_msgs::Float64 inferior_left_forearm_pos_msg;
 
 extern std_msgs::String debug_msg;
-extern geometry_msgs::PointStamped imu_accel_msg;
-extern geometry_msgs::PointStamped imu_gyro_msg;
+extern sensor_msgs::Imu imu_msg;
 
 extern ros::Publisher debug_pub;
-extern ros::Publisher imu_accel_pub;
-extern ros::Publisher imu_gyro_pub;
+extern ros::Publisher imu_pub;
 
 // init
 void initROS();
