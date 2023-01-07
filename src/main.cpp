@@ -7,7 +7,7 @@
 #include "ros_connect.h"
 #include "multithreading.h"
 #include "access_point.h"
-#include "imu.h"
+//#include "imu.h"
 
 #include <Wire.h>
 
@@ -114,6 +114,6 @@ void setup() {
 void loop() {
 
   nh.spinOnce();
-  pub_imu_raw();
+  //pub_imu_raw();
 
 }
