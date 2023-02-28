@@ -1,3 +1,0 @@
-void ik();
-
-void fk();
