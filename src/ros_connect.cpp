@@ -1,89 +1,80 @@
 #include "../include/ros_connect.h"
+#include "../include/motor_drive.h"
 
 #include <ros.h>
 #include <ros/time.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/String.h>
-#include <sensor_msgs/Imu.h>
-#include <geometry_msgs/PointStamped.h>
-#include <tf/tf.h>
 
 NodeHandle nh;
 
-std_msgs::Float64 superior_right_shoulder_pos_msg;
-std_msgs::Float64 superior_left_shoulder_pos_msg;
-std_msgs::Float64 inferior_right_shoulder_pos_msg;
-std_msgs::Float64 inferior_left_shoulder_pos_msg;
+std_msgs::Float64 thumb_flex_msg;
+std_msgs::Float64 thumb_abd_msg;
 
-std_msgs::Float64 superior_right_arm_pos_msg;
-std_msgs::Float64 superior_left_arm_pos_msg;
-std_msgs::Float64 inferior_right_arm_pos_msg;
-std_msgs::Float64 inferior_left_arm_pos_msg;
+std_msgs::Float64 index_flex_msg;
+std_msgs::Float64 index_abd_msg;
 
-std_msgs::Float64 superior_right_forearm_pos_msg;
-std_msgs::Float64 superior_left_forearm_pos_msg;
-std_msgs::Float64 inferior_right_forearm_pos_msg;
-std_msgs::Float64 inferior_left_forearm_pos_msg;
+std_msgs::Float64 middle_flex_msg;
+std_msgs::Float64 middle_abd_msg;
+
+std_msgs::Float64 ring_flex_msg;
+std_msgs::Float64 ring_abd_msg;
+
+std_msgs::Float64 pinky_flex_msg;
+std_msgs::Float64 pinky_abd_msg;
+
+std_msgs::Float64 wrist_flex_msg;
 
 std_msgs::String debug_msg;
-sensor_msgs::Imu imu_msg;
+
 
 ros::Publisher debug_pub("/debug", &debug_msg);
-ros::Publisher imu_pub("/imu/data_raw", &imu_msg);
 
-ros::Subscriber<std_msgs::Float64> superior_right_shoulder_abductor_sub("/actuation/leg/shoulder/superior/right", &superior_right_shoulder_abductor_cb);
-ros::Subscriber<std_msgs::Float64> superior_left_shoulder_abductor_sub("/actuation/leg/shoulder/superior/left", &superior_left_shoulder_abductor_cb);
-ros::Subscriber<std_msgs::Float64> inferior_right_shoulder_abductor_sub("/actuation/leg/shoulder/inferior/right", &inferior_right_shoulder_abductor_cb);
-ros::Subscriber<std_msgs::Float64> inferior_left_shoulder_abductor_sub("/actuation/leg/shoulder/inferior/left", &inferior_left_shoulder_abductor_cb);
-
-ros::Subscriber<std_msgs::Float64> superior_right_arm_extensor_sub("/actuation/leg/arm/superior/right", &superior_right_arm_extensor_cb);
-ros::Subscriber<std_msgs::Float64> superior_left_arm_extensor_sub("/actuation/leg/arm/superior/left", &superior_left_arm_extensor_cb);
-ros::Subscriber<std_msgs::Float64> inferior_right_arm_extensor_sub("/actuation/leg/arm/inferior/right", &inferior_right_arm_extensor_cb);
-ros::Subscriber<std_msgs::Float64> inferior_left_arm_extensor_sub("/actuation/leg/arm/inferior/left", &inferior_left_arm_extensor_cb);
-
-ros::Subscriber<std_msgs::Float64> superior_right_forearm_extensor_sub("/actuation/leg/forearm/superior/right", &superior_right_forearm_extensor_cb);
-ros::Subscriber<std_msgs::Float64> superior_left_forearm_extensor_sub("/actuation/leg/forearm/superior/left", &superior_left_forearm_extensor_cb);
-ros::Subscriber<std_msgs::Float64> inferior_right_forearm_extensor_sub("/actuation/leg/forearm/inferior/right", &inferior_right_forearm_extensor_cb);
-ros::Subscriber<std_msgs::Float64> inferior_left_forearm_extensor_sub("/actuation/leg/forearm/inferior/left", &inferior_left_forearm_extensor_cb);
+ros::Subscriber<std_msgs::Float64> thumb_flex_sub ("/actuation/thumb/flex", &thumb_flex_cb);
+ros::Subscriber<std_msgs::Float64> thumb_abd_sub  ("/actuation/thumb/abd",  &thumb_abd_cb);
+ros::Subscriber<std_msgs::Float64> index_flex_sub ("/actuation/index/flex", &index_flex_cb);
+ros::Subscriber<std_msgs::Float64> index_abd_sub  ("/actuation/index/abd",  &index_abd_cb);
+ros::Subscriber<std_msgs::Float64> middle_flex_sub("/actuation/middle/flex",&middle_flex_cb);
+ros::Subscriber<std_msgs::Float64> middle_abd_sub ("/actuation/middle/abd", &middle_abd_cb);
+ros::Subscriber<std_msgs::Float64> ring_flex_sub  ("/actuation/ring/flex",  &ring_flex_cb);
+ros::Subscriber<std_msgs::Float64> ring_abd_sub   ("/actuation/ring/abd",   &ring_abd_cb);
+ros::Subscriber<std_msgs::Float64> pinky_flex_sub ("/actuation/pinky/flex", &pinky_flex_cb);
+ros::Subscriber<std_msgs::Float64> pinky_abd_sub  ("/actuation/pinky/abd",  &pinky_abd_cb);
+ros::Subscriber<std_msgs::Float64> wrist_flex_sub ("/actuation/wrist/flex", &wrist_flex_cb);
     
 
-void superior_right_shoulder_abductor_cb(const std_msgs::Float64 &superior_right_shoulder_pos_msg);
-void superior_left_shoulder_abductor_cb(const std_msgs::Float64 &superior_left_shoulder_pos_msg);
-void inferior_right_shoulder_abductor_cb(const std_msgs::Float64 &inferior_right_shoulder_pos_msg);
-void inferior_left_shoulder_abductor_cb(const std_msgs::Float64 &inferior_left_shoulder_pos_msg);
-
-void superior_right_arm_extensor_cb(const std_msgs::Float64 &superior_right_arm_pos_msg);
-void superior_left_arm_extensor_cb(const std_msgs::Float64 &superior_left_arm_pos_msg);
-void inferior_right_arm_extensor_cb(const std_msgs::Float64 &inferior_right_arm_pos_msg);
-void inferior_left_arm_extensor_cb(const std_msgs::Float64 &inferior_left_arm_pos_msg);
-
-void superior_right_forearm_extensor_cb(const std_msgs::Float64 &superior_right_forearm_pos_msg);
-void superior_left_forearm_extensor_cb(const std_msgs::Float64 &superior_left_forearm_pos_msg);
-void inferior_right_forearm_extensor_cb(const std_msgs::Float64 &inferior_right_forearm_pos_msg);
-void inferior_left_forearm_extensor_cb(const std_msgs::Float64 &inferior_left_forearm_pos_msg);
+void thumb_flex_cb (const std_msgs::Float64 &thumb_flex_msg);
+void thumb_abd_cb  (const std_msgs::Float64 &thumb_abd_msg);
+void index_flex_cb (const std_msgs::Float64 &index_flex_msg);
+void index_abd_cb  (const std_msgs::Float64 &index_abd_msg);
+void middle_flex_cb(const std_msgs::Float64 &middle_flex_msg);
+void middle_abd_cb (const std_msgs::Float64 &middle_abd_msg);
+void ring_flex_cb  (const std_msgs::Float64 &ring_flex_msg);
+void ring_abd_cb   (const std_msgs::Float64 &ring_abd_msg);
+void pinky_flex_cb (const std_msgs::Float64 &pinky_flex_msg);
+void pinky_abd_cb  (const std_msgs::Float64 &pinky_abd_msg);
+void wrist_flex_cb (const std_msgs::Float64 &wrist_flex_msg);
 
 
 void initROS() {
   nh.initNode();
-  //sub
-  nh.subscribe(superior_right_shoulder_abductor_sub);
-  nh.subscribe(superior_left_shoulder_abductor_sub);
-  nh.subscribe(inferior_right_shoulder_abductor_sub);
-  nh.subscribe(inferior_left_shoulder_abductor_sub);
-
-  nh.subscribe(superior_right_arm_extensor_sub);
-  nh.subscribe(superior_left_arm_extensor_sub);
-  nh.subscribe(inferior_right_arm_extensor_sub);
-  nh.subscribe(inferior_left_arm_extensor_sub);
-
-  nh.subscribe(superior_right_forearm_extensor_sub);
-  nh.subscribe(superior_left_forearm_extensor_sub);
-  nh.subscribe(inferior_right_forearm_extensor_sub);
-  nh.subscribe(inferior_left_forearm_extensor_sub);
   
-  // pub
+  // #### Subscribers
+  nh.subscribe(thumb_flex_sub);
+  nh.subscribe(thumb_abd_sub);
+  nh.subscribe(index_flex_sub);
+  nh.subscribe(index_abd_sub);
+  nh.subscribe(middle_flex_sub);
+  nh.subscribe(middle_abd_sub);
+  nh.subscribe(ring_flex_sub);
+  nh.subscribe(ring_abd_sub);
+  nh.subscribe(pinky_flex_sub);
+  nh.subscribe(pinky_abd_sub);
+  nh.subscribe(wrist_flex_sub);
+
+  // #### Publishers
   nh.advertise(debug_pub);
-  nh.advertise(imu_pub);
+  
   // give serial_node.py a chance to get to know the topics
   nh.negotiateTopics();
 

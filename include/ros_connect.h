@@ -5,7 +5,6 @@
 #include <ros/time.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/String.h>
-#include <sensor_msgs/Imu.h>
 #include <tf/tf.h>
 
 typedef ros::NodeHandle_<ArduinoHardware, 25, 25, 2048, 2048>
@@ -15,44 +14,38 @@ typedef ros::NodeHandle_<ArduinoHardware, 25, 25, 2048, 2048>
 extern NodeHandle nh;
 
 // msgs
-extern std_msgs::Float64 superior_right_shoulder_pos_msg;
-extern std_msgs::Float64 superior_left_shoulder_pos_msg;
-extern std_msgs::Float64 inferior_right_shoulder_pos_msg;
-extern std_msgs::Float64 inferior_left_shoulder_pos_msg;
-
-extern std_msgs::Float64 superior_right_arm_pos_msg;
-extern std_msgs::Float64 superior_left_arm_pos_msg;
-extern std_msgs::Float64 inferior_right_arm_pos_msg;
-extern std_msgs::Float64 inferior_left_arm_pos_msg;
-
-extern std_msgs::Float64 superior_right_forearm_pos_msg;
-extern std_msgs::Float64 superior_left_forearm_pos_msg;
-extern std_msgs::Float64 inferior_right_forearm_pos_msg;
-extern std_msgs::Float64 inferior_left_forearm_pos_msg;
+extern std_msgs::Float64 thumb_flex_msg;
+extern std_msgs::Float64 thumb_abd_msg;
+extern std_msgs::Float64 index_flex_msg;
+extern std_msgs::Float64 index_abd_msg;
+extern std_msgs::Float64 middle_flex_msg;
+extern std_msgs::Float64 middle_abd_msg;
+extern std_msgs::Float64 ring_flex_msg;
+extern std_msgs::Float64 ring_abd_msg;
+extern std_msgs::Float64 pinky_flex_msg;
+extern std_msgs::Float64 pinky_abd_msg;
+extern std_msgs::Float64 wrist_flex_msg;
 
 extern std_msgs::String debug_msg;
-extern sensor_msgs::Imu imu_msg;
 
 extern ros::Publisher debug_pub;
-extern ros::Publisher imu_pub;
 
 // init
 void initROS();
 
 // callbacks
-void superior_right_shoulder_abductor_cb(const std_msgs::Float64 &superior_right_shoulder_pos_msg);
-void superior_left_shoulder_abductor_cb(const std_msgs::Float64 &superior_left_shoulder_pos_msg);
-void inferior_right_shoulder_abductor_cb(const std_msgs::Float64 &inferior_right_shoulder_pos_msg);
-void inferior_left_shoulder_abductor_cb(const std_msgs::Float64 &inferior_left_shoulder_pos_msg);
+void thumb_flex_cb (const std_msgs::Float64 &thumb_flex_msg);
+void thumb_abd_cb  (const std_msgs::Float64 &thumb_abd_msg);
+void index_flex_cb (const std_msgs::Float64 &index_flex_msg);
+void index_abd_cb  (const std_msgs::Float64 &index_abd_msg);
+void middle_flex_cb(const std_msgs::Float64 &middle_flex_msg);
+void middle_abd_cb (const std_msgs::Float64 &middle_abd_msg);
+void ring_flex_cb  (const std_msgs::Float64 &ring_flex_msg);
+void ring_abd_cb   (const std_msgs::Float64 &ring_abd_msg);
+void pinky_flex_cb (const std_msgs::Float64 &pinky_flex_msg);
+void pinky_abd_cb  (const std_msgs::Float64 &pinky_abd_msg);
+void wrist_flex_cb (const std_msgs::Float64 &wrist_flex_msg);
 
-void superior_right_arm_extensor_cb(const std_msgs::Float64 &superior_right_arm_pos_msg);
-void superior_left_arm_extensor_cb(const std_msgs::Float64 &superior_left_arm_pos_msg);
-void inferior_right_arm_extensor_cb(const std_msgs::Float64 &inferior_right_arm_pos_msg);
-void inferior_left_arm_extensor_cb(const std_msgs::Float64 &inferior_left_arm_pos_msg);
-
-void superior_right_forearm_extensor_cb(const std_msgs::Float64 &superior_right_forearm_pos_msg);
-void superior_left_forearm_extensor_cb(const std_msgs::Float64 &superior_left_forearm_pos_msg);
-void inferior_right_forearm_extensor_cb(const std_msgs::Float64 &inferior_right_forearm_pos_msg);
-void inferior_left_forearm_extensor_cb(const std_msgs::Float64 &inferior_left_forearm_pos_msg);
+void debug_cb(const std_msgs::String debug_msg);
 
 #endif // INCLUDE_ROS_CONNECT_H
