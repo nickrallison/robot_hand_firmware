@@ -23,36 +23,36 @@ void init_motors() {
 void command_motors() {
 
     thumb_flex_pwm  = map2(thumb_flex_pos,  thumb_flex_min_pos,  thumb_flex_max_pos,  thumb_flex_min_pwm,  thumb_flex_max_pwm);
-    thumb_abd_pwm   = map2(thumb_abd_pos,   thumb_abd_min_pos,   thumb_abd_max_pos,   thumb_abd_min_pwm,   thumb_abd_max_pwm);
+    thumb_right_pwm   = map2(thumb_right_pos,   thumb_right_min_pos,   thumb_right_max_pos,   thumb_right_min_pwm,   thumb_right_max_pwm);
 
     index_flex_pwm  = map2(index_flex_pos,  index_flex_min_pos,  index_flex_max_pos,  index_flex_min_pwm,  index_flex_max_pwm);
-    index_abd_pwm   = map2(index_abd_pos,   index_abd_min_pos,   index_abd_max_pos,   index_abd_min_pwm,   index_abd_max_pwm);
+    index_right_pwm   = map2(index_right_pos,   index_right_min_pos,   index_right_max_pos,   index_right_min_pwm,   index_right_max_pwm);
 
     middle_flex_pwm = map2(middle_flex_pos, middle_flex_min_pos, middle_flex_max_pos, middle_flex_min_pwm, middle_flex_max_pwm);
-    middle_abd_pwm  = map2(middle_abd_pos,  middle_abd_min_pos,  middle_abd_max_pos,  middle_abd_min_pwm,  middle_abd_max_pwm);
+    middle_right_pwm  = map2(middle_right_pos,  middle_right_min_pos,  middle_right_max_pos,  middle_right_min_pwm,  middle_right_max_pwm);
 
     ring_flex_pwm   = map2(ring_flex_pos,   ring_flex_min_pos,   ring_flex_max_pos,   ring_flex_min_pwm,   ring_flex_max_pwm);
-    ring_abd_pwm    = map2(ring_abd_pos,    ring_abd_min_pos,    ring_abd_max_pos,    ring_abd_min_pwm,    ring_abd_max_pwm);
+    ring_right_pwm    = map2(ring_right_pos,    ring_right_min_pos,    ring_right_max_pos,    ring_right_min_pwm,    ring_right_max_pwm);
 
     pinky_flex_pwm  = map2(pinky_flex_pos,  pinky_flex_min_pos,  pinky_flex_max_pos,  pinky_flex_min_pwm,  pinky_flex_max_pwm);
-    pinky_abd_pwm   = map2(pinky_abd_pos,   pinky_abd_min_pos,   pinky_abd_max_pos,   pinky_abd_min_pwm,   pinky_abd_max_pwm);
+    pinky_right_pwm   = map2(pinky_right_pos,   pinky_right_min_pos,   pinky_right_max_pos,   pinky_right_min_pwm,   pinky_right_max_pwm);
 
     wrist_flex_pwm  = map2(wrist_flex_pos,  wrist_flex_min_pos,  wrist_flex_max_pos,  wrist_flex_min_pwm,  wrist_flex_max_pwm);
 
     pwm.setPWM(0, 0, thumb_flex_pwm);
-    pwm.setPWM(1, 0, thumb_abd_pwm);
+    pwm.setPWM(1, 0, thumb_right_pwm);
 
     pwm.setPWM(2, 0, index_flex_pwm);
-    pwm.setPWM(3, 0, index_abd_pwm);
+    pwm.setPWM(3, 0, index_right_pwm);
 
     pwm.setPWM(4, 0, middle_flex_pwm);
-    pwm.setPWM(5, 0, middle_abd_pwm);
+    pwm.setPWM(5, 0, middle_right_pwm);
 
     pwm.setPWM(6, 0, ring_flex_pwm);
-    pwm.setPWM(7, 0, ring_abd_pwm);
+    pwm.setPWM(7, 0, ring_right_pwm);
 
     pwm.setPWM(8, 0, pinky_flex_pwm);
-    pwm.setPWM(9, 0, pinky_abd_pwm);
+    pwm.setPWM(9, 0, pinky_right_pwm);
 
     pwm.setPWM(10, 0, wrist_flex_pwm);
 
@@ -61,32 +61,32 @@ void command_motors() {
 void thumb_flex_cb(const std_msgs::Float64 &thumb_flex_msg) {
     thumb_flex_pos = thumb_flex_msg.data;
 }
-void thumb_abd_cb(const std_msgs::Float64 &thumb_abd_msg) {
-    thumb_abd_pos = thumb_abd_msg.data;
+void thumb_right_cb(const std_msgs::Float64 &thumb_right_msg) {
+    thumb_right_pos = thumb_right_msg.data;
 }
 void index_flex_cb(const std_msgs::Float64 &index_flex_msg) {
     index_flex_pos = index_flex_msg.data;
 }
-void index_abd_cb(const std_msgs::Float64 &index_abd_msg) {
-    index_abd_pos = index_abd_msg.data;
+void index_right_cb(const std_msgs::Float64 &index_right_msg) {
+    index_right_pos = index_right_msg.data;
 }
 void middle_flex_cb(const std_msgs::Float64 &middle_flex_msg) {
     middle_flex_pos = middle_flex_msg.data;
 }
-void middle_abd_cb(const std_msgs::Float64 &middle_abd_msg) {
-    middle_abd_pos = middle_abd_msg.data;
+void middle_right_cb(const std_msgs::Float64 &middle_right_msg) {
+    middle_right_pos = middle_right_msg.data;
 }
 void ring_flex_cb(const std_msgs::Float64 &ring_flex_msg) {
     ring_flex_pos = ring_flex_msg.data;
 }
-void ring_abd_cb(const std_msgs::Float64 &ring_abd_msg) {
-    ring_abd_pos = ring_abd_msg.data;
+void ring_right_cb(const std_msgs::Float64 &ring_right_msg) {
+    ring_right_pos = ring_right_msg.data;
 }
 void pinky_flex_cb(const std_msgs::Float64 &pinky_flex_msg) {
     pinky_flex_pos = pinky_flex_msg.data;
 }
-void pinky_abd_cb(const std_msgs::Float64 &pinky_abd_msg) {
-    pinky_abd_pos = pinky_abd_msg.data;
+void pinky_right_cb(const std_msgs::Float64 &pinky_right_msg) {
+    pinky_right_pos = pinky_right_msg.data;
 }
 void wrist_flex_cb(const std_msgs::Float64 &wrist_flex_msg) {
     wrist_flex_pos = wrist_flex_msg.data;

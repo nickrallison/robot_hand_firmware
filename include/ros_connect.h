@@ -15,15 +15,15 @@ extern NodeHandle nh;
 
 // msgs
 extern std_msgs::Float64 thumb_flex_msg;
-extern std_msgs::Float64 thumb_abd_msg;
+extern std_msgs::Float64 thumb_right_msg;
 extern std_msgs::Float64 index_flex_msg;
-extern std_msgs::Float64 index_abd_msg;
+extern std_msgs::Float64 index_right_msg;
 extern std_msgs::Float64 middle_flex_msg;
-extern std_msgs::Float64 middle_abd_msg;
+extern std_msgs::Float64 middle_right_msg;
 extern std_msgs::Float64 ring_flex_msg;
-extern std_msgs::Float64 ring_abd_msg;
+extern std_msgs::Float64 ring_right_msg;
 extern std_msgs::Float64 pinky_flex_msg;
-extern std_msgs::Float64 pinky_abd_msg;
+extern std_msgs::Float64 pinky_right_msg;
 extern std_msgs::Float64 wrist_flex_msg;
 
 extern std_msgs::String debug_msg;
@@ -35,15 +35,15 @@ void initROS();
 
 // callbacks
 void thumb_flex_cb (const std_msgs::Float64 &thumb_flex_msg);
-void thumb_abd_cb  (const std_msgs::Float64 &thumb_abd_msg);
+void thumb_right_cb  (const std_msgs::Float64 &thumb_right_msg);
 void index_flex_cb (const std_msgs::Float64 &index_flex_msg);
-void index_abd_cb  (const std_msgs::Float64 &index_abd_msg);
+void index_right_cb  (const std_msgs::Float64 &index_right_msg);
 void middle_flex_cb(const std_msgs::Float64 &middle_flex_msg);
-void middle_abd_cb (const std_msgs::Float64 &middle_abd_msg);
+void middle_right_cb (const std_msgs::Float64 &middle_right_msg);
 void ring_flex_cb  (const std_msgs::Float64 &ring_flex_msg);
-void ring_abd_cb   (const std_msgs::Float64 &ring_abd_msg);
+void ring_right_cb   (const std_msgs::Float64 &ring_right_msg);
 void pinky_flex_cb (const std_msgs::Float64 &pinky_flex_msg);
-void pinky_abd_cb  (const std_msgs::Float64 &pinky_abd_msg);
+void pinky_right_cb  (const std_msgs::Float64 &pinky_right_msg);
 void wrist_flex_cb (const std_msgs::Float64 &wrist_flex_msg);
 
 void debug_cb(const std_msgs::String debug_msg);
