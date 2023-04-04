@@ -58,6 +58,7 @@ void command_motors() {
 
 void thumb_flex_cb(const std_msgs::Float64 &thumb_flex_msg) {
     thumb_flex_pos_next = thumb_flex_msg.data;
+    percent_complete = 0;
 }
 void thumb_abd_cb(const std_msgs::Float64 &thumb_abd_msg) {
     thumb_abd_pos_next = thumb_abd_msg.data;

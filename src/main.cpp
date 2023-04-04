@@ -127,7 +127,11 @@ void loop()
   // ros::Rate rate(10);
   nh.spinOnce();
   percent_complete += 1. / (sign_period * freq);
-  if (percent_complete > 0.99)
+  hand_lerp();
+  command_motors();
+  percent_msg.data = percent_complete;
+  percent_pub.publish(&percent_msg);
+  if (percent_complete > 1.)
   {
     thumb_flex_pos_prev = thumb_flex_pos_next;
     thumb_abd_pos_prev = thumb_abd_pos_next;
@@ -140,10 +144,7 @@ void loop()
     pinky_flex_pos_prev = pinky_flex_pos_next;
     pinky_abd_pos_prev = pinky_abd_pos_next;
     wrist_flex_pos_prev = wrist_flex_pos_next;
+    percent_complete = 0;
   }
-  hand_lerp();
-  command_motors();
-  percent_msg.data = percent_complete;
-  percent_pub.publish(&percent_msg);
   delay(1. / freq);
 }
