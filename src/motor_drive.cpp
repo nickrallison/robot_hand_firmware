@@ -3,6 +3,8 @@
 #include "../include/ros_connect.h"
 #include "../include/pin_map.h"
 
+#define SERVO_FREQ 50
+
 // See this lib: https://learn.adafruit.com/16-channel-pwm-servo-driver?view=all
 //pulselength = map(degrees, 0, 180, SERVOMIN, SERVOMAX);  for ease of use
 
@@ -11,12 +13,8 @@ void init_motors() {
     pwm.begin();
     Serial.println("Initting Servo Driver");
 
-    pwm.setPWMFreq(1000);  // Set to whatever you like, we don't use it in this demo!
-
-    // if you want to really speed stuff up, you can go into 'fast 400khz I2C' mode
-    // some i2c devices dont like this so much so if you're sharing the bus, watch
-    // out for this!
-    Wire.setClock(400000);
+    pwm.setOscillatorFrequency(27000000);
+    pwm.setPWMFreq(SERVO_FREQ);  // Analog servos run at ~50 Hz updates
 
 }
 
