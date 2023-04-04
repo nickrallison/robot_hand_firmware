@@ -1,12 +1,7 @@
 #include "motor_drive.h"
 #include "robot_constant.h"
 #include "../include/ros_connect.h"
-
-#define SERVOMIN  60 // This is the 'minimum' pulse length count (out of 4096)
-#define SERVOMAX  520 // This is the 'maximum' pulse length count (out of 4096)
-#define SERVO_FREQ 50 // Analog servos run at ~50 Hz updates
-
-
+#include "../include/pin_map.h"
 
 // See this lib: https://learn.adafruit.com/16-channel-pwm-servo-driver?view=all
 //pulselength = map(degrees, 0, 180, SERVOMIN, SERVOMAX);  for ease of use
@@ -15,8 +10,13 @@ void init_motors() {
 
     pwm.begin();
     Serial.println("Initting Servo Driver");
-    pwm.setOscillatorFrequency(27000000); //set w/ ossicloscope?
-    pwm.setPWMFreq(SERVO_FREQ);
+
+    pwm.setPWMFreq(1000);  // Set to whatever you like, we don't use it in this demo!
+
+    // if you want to really speed stuff up, you can go into 'fast 400khz I2C' mode
+    // some i2c devices dont like this so much so if you're sharing the bus, watch
+    // out for this!
+    Wire.setClock(400000);
 
 }
 
@@ -39,22 +39,22 @@ void command_motors() {
 
     wrist_flex_pwm  = map2(wrist_flex_pos,  wrist_flex_min_pos,  wrist_flex_max_pos,  wrist_flex_min_pwm,  wrist_flex_max_pwm);
 
-    pwm.setPWM(0, 0, thumb_flex_pwm);
-    pwm.setPWM(1, 0, thumb_abd_pwm);
+    pwm.setPWM(THUMB_FLEX, 0, thumb_flex_pwm);
+    pwm.setPWM(THUMB_ABDUCT, 0, thumb_abd_pwm);
 
-    pwm.setPWM(2, 0, index_flex_pwm);
-    pwm.setPWM(3, 0, index_abd_pwm);
+    pwm.setPWM(INDEX_FLEX, 0, index_flex_pwm);
+    pwm.setPWM(INDEX_ABDUCT, 0, index_abd_pwm);
 
-    pwm.setPWM(4, 0, middle_flex_pwm);
-    pwm.setPWM(5, 0, middle_abd_pwm);
+    pwm.setPWM(MIDDLE_FLEX, 0, middle_flex_pwm);
+    pwm.setPWM(MIDDLE_ABDUCT, 0, middle_abd_pwm);
 
-    pwm.setPWM(6, 0, ring_flex_pwm);
-    pwm.setPWM(7, 0, ring_abd_pwm);
+    pwm.setPWM(RING_FLEX, 0, ring_flex_pwm);
+    pwm.setPWM(RING_ABDUCT, 0, ring_abd_pwm);
 
-    pwm.setPWM(8, 0, pinky_flex_pwm);
-    pwm.setPWM(9, 0, pinky_abd_pwm);
+    pwm.setPWM(PINKIE_FLEX, 0, pinky_flex_pwm);
+    pwm.setPWM(PINKIE_ABDUCT, 0, pinky_abd_pwm);
 
-    pwm.setPWM(10, 0, wrist_flex_pwm);
+    pwm.setPWM(15, 0, wrist_flex_pwm);
 
 }
 

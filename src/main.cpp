@@ -8,41 +8,41 @@
 
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
-double thumb_flex_pos = 0.0;
+double thumb_flex_pos = 0.5;
 double thumb_abd_pos = 0.0;
-double index_flex_pos = 0.0;
+double index_flex_pos = 0.5;
 double index_abd_pos = 0.0;
-double middle_flex_pos = 0.0;
+double middle_flex_pos = 0.5;
 double middle_abd_pos = 0.0;
-double ring_flex_pos = 0.0;
+double ring_flex_pos = 0.5;
 double ring_abd_pos = 0.0;
-double pinky_flex_pos = 0.0;
+double pinky_flex_pos = 0.5;
 double pinky_abd_pos = 0.0;
-double wrist_flex_pos = 0.0;
+double wrist_flex_pos = 0.5;
 
 double thumb_flex_min_pos = 0.0;
-double thumb_abd_min_pos = 0.0;
+double thumb_abd_min_pos = -1.0;
 double index_flex_min_pos = 0.0;
-double index_abd_min_pos = 0.0;
+double index_abd_min_pos = -1.0;
 double middle_flex_min_pos = 0.0;
-double middle_abd_min_pos = 0.0;
+double middle_abd_min_pos = -1.0;
 double ring_flex_min_pos = 0.0;
-double ring_abd_min_pos = 0.0;
+double ring_abd_min_pos = -1.0;
 double pinky_flex_min_pos = 0.0;
-double pinky_abd_min_pos = 0.0;
+double pinky_abd_min_pos = -1.0;
 double wrist_flex_min_pos = 0.0;
 
-double thumb_flex_max_pos = 0.0;
-double thumb_abd_max_pos = 0.0;
-double index_flex_max_pos = 0.0;
-double index_abd_max_pos = 0.0;
-double middle_flex_max_pos = 0.0;
-double middle_abd_max_pos = 0.0;
-double ring_flex_max_pos = 0.0;
-double ring_abd_max_pos = 0.0;
-double pinky_flex_max_pos = 0.0;
-double pinky_abd_max_pos = 0.0;
-double wrist_flex_max_pos = 0.0;
+double thumb_flex_max_pos = 1.0;
+double thumb_abd_max_pos = 1.0;
+double index_flex_max_pos = 1.0;
+double index_abd_max_pos = 1.0;
+double middle_flex_max_pos = 1.0;
+double middle_abd_max_pos = 1.0;
+double ring_flex_max_pos = 1.0;
+double ring_abd_max_pos = 1.0;
+double pinky_flex_max_pos = 1.0;
+double pinky_abd_max_pos = 1.0;
+double wrist_flex_max_pos = 1.0;
 
 double thumb_flex_pwm = 0.0;
 double thumb_abd_pwm = 0.0;
@@ -56,42 +56,66 @@ double pinky_flex_pwm = 0.0;
 double pinky_abd_pwm = 0.0;
 double wrist_flex_pwm = 0.0;
 
-double thumb_flex_min_pwm = 0.0;
-double thumb_abd_min_pwm = 0.0;
-double index_flex_min_pwm = 0.0;
-double index_abd_min_pwm = 0.0;
-double middle_flex_min_pwm = 0.0;
-double middle_abd_min_pwm = 0.0;
-double ring_flex_min_pwm = 0.0;
-double ring_abd_min_pwm = 0.0;
-double pinky_flex_min_pwm = 0.0;
-double pinky_abd_min_pwm = 0.0;
-double wrist_flex_min_pwm = 0.0;
+double thumb_flex_min_pwm = 1000;
+double thumb_abd_min_pwm = 1000;
+double index_flex_min_pwm = 1000;
+double index_abd_min_pwm = 1000;
+double middle_flex_min_pwm = 1000;
+double middle_abd_min_pwm = 1000;
+double ring_flex_min_pwm = 1000;
+double ring_abd_min_pwm = 1000;
+double pinky_flex_min_pwm = 3940;
+double pinky_abd_min_pwm = 1000;
+double wrist_flex_min_pwm = 1000;
 
-double thumb_flex_max_pwm = 0.0;
-double thumb_abd_max_pwm = 0.0;
-double index_flex_max_pwm = 0.0;
-double index_abd_max_pwm = 0.0;
-double middle_flex_max_pwm = 0.0;
-double middle_abd_max_pwm = 0.0;
-double ring_flex_max_pwm = 0.0;
-double ring_abd_max_pwm = 0.0;
-double pinky_flex_max_pwm = 0.0;
-double pinky_abd_max_pwm = 0.0;
-double wrist_flex_max_pwm = 0.0;
+double thumb_flex_max_pwm = 4095;
+double thumb_abd_max_pwm = 4095;
+double index_flex_max_pwm = 4095;
+double index_abd_max_pwm = 4095;
+double middle_flex_max_pwm = 4095;
+double middle_abd_max_pwm = 4095;
+double ring_flex_max_pwm = 4095;
+double ring_abd_max_pwm = 4095;
+double pinky_flex_max_pwm = 1400;
+double pinky_abd_max_pwm = 4095;
+double wrist_flex_max_pwm = 4095;
 
 
 void setup() {
-  Serial.begin(115200);
-  nh.getHardware()->setBaud(115200);
-  Serial.println("Initting Serial");
+  // Serial.begin(115200);
+  // nh.getHardware()->setBaud(115200);
+  // Serial.println("Initting Serial");
   init_motors();
-  initROS();
+  // initROS();
+  Serial.begin(9600);
+
+  init_motors();
 }
 
 void loop() {
 
-  nh.spinOnce();
-  command_motors();
+  //nh.spinOnce();
 
+  for (double val = 0; val<1; val+=0.01){
+    pinky_flex_pos = val;
+    command_motors();
+    delay(15);
+    Serial.println(val);
+  }
+
+  for (double val = 1; val>0; val-=0.01){
+    pinky_flex_pos = val;
+    command_motors();
+    delay(15);
+    Serial.println(val);
+  }
+
+  // pinky_flex_pos = 1.0;
+  // command_motors();
+  // Serial.println(pinky_flex_pwm);
+
+  
+
+  // index_flex_pos = 0;
+  // command_motors();
 }
