@@ -94,21 +94,21 @@ void setup() {
 
 void loop() {
 
-  //nh.spinOnce();
+  nh.spinOnce();
 
-  for (double val = 0; val<1; val+=0.01){
-    index_abd_pos = val;
-    command_motors();
-    delay(15);
-    Serial.println(val);
-  }
+  // for (double val = 0; val<1; val+=0.01){
+  //   index_flex_pos = val;
+  //   command_motors();
+  //   delay(15);
+  //   Serial.println(val);
+  // }
 
-  for (double val = 1; val>0; val-=0.01){
-    index_abd_pos = val;
-    command_motors();
-    delay(15);
-    Serial.println(val);
-  }
+  // for (double val = 1; val>0; val-=0.01){
+  //   index_flex_pos = val;
+  //   command_motors();
+  //   delay(15);
+  //   Serial.println(val);
+  // }
 
   // pinky_flex_pos = 1.0;
   // command_motors();
