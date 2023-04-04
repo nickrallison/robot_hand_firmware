@@ -85,16 +85,17 @@ void setup() {
   // Serial.begin(115200);
   // nh.getHardware()->setBaud(115200);
   // Serial.println("Initting Serial");
-  init_motors();
-  // initROS();
   Serial.begin(9600);
+  nh.getHardware()->setBaud(9600);
 
   init_motors();
+  initROS();
 }
 
 void loop() {
 
   nh.spinOnce();
+  command_motors();
 
   // for (double val = 0; val<1; val+=0.01){
   //   index_flex_pos = val;
