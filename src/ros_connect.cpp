@@ -25,9 +25,11 @@ std_msgs::Float64 pinky_abd_msg;
 
 std_msgs::Float64 wrist_flex_msg;
 
+std_msgs::Float64 percent_msg;
+
 std_msgs::String debug_msg;
 
-
+ros::Publisher percent_pub("/percent", &percent_msg);
 ros::Publisher debug_pub("/debug", &debug_msg);
 
 ros::Subscriber<std_msgs::Float64> thumb_flex_sub ("/actuation/thumb/flex", &thumb_flex_cb);
@@ -74,6 +76,7 @@ void initROS() {
 
   // #### Publishers
   nh.advertise(debug_pub);
+  nh.advertise(percent_pub);
   
   // give serial_node.py a chance to get to know the topics
   nh.negotiateTopics();

@@ -14,7 +14,7 @@ void init_motors() {
     Serial.println("Initting Servo Driver");
 
     pwm.setOscillatorFrequency(27000000);
-    pwm.setPWMFreq(SERVO_FREQ);  // Analog servos run at ~50 Hz updates
+    pwm.setPWMFreq(1000);  // Analog servos run at ~50 Hz updates
 
 }
 
@@ -57,37 +57,37 @@ void command_motors() {
 }
 
 void thumb_flex_cb(const std_msgs::Float64 &thumb_flex_msg) {
-    thumb_flex_pos = thumb_flex_msg.data;
+    thumb_flex_pos_next = thumb_flex_msg.data;
 }
 void thumb_abd_cb(const std_msgs::Float64 &thumb_abd_msg) {
-    thumb_abd_pos = thumb_abd_msg.data;
+    thumb_abd_pos_next = thumb_abd_msg.data;
 }
 void index_flex_cb(const std_msgs::Float64 &index_flex_msg) {
-    index_flex_pos = index_flex_msg.data;
+    index_flex_pos_next = index_flex_msg.data;
 }
 void index_abd_cb(const std_msgs::Float64 &index_abd_msg) {
-    index_abd_pos = index_abd_msg.data;
+    index_abd_pos_next = index_abd_msg.data;
 }
 void middle_flex_cb(const std_msgs::Float64 &middle_flex_msg) {
-    middle_flex_pos = middle_flex_msg.data;
+    middle_flex_pos_next = middle_flex_msg.data;
 }
 void middle_abd_cb(const std_msgs::Float64 &middle_abd_msg) {
-    middle_abd_pos = middle_abd_msg.data;
+    middle_abd_pos_next = middle_abd_msg.data;
 }
 void ring_flex_cb(const std_msgs::Float64 &ring_flex_msg) {
-    ring_flex_pos = ring_flex_msg.data;
+    ring_flex_pos_next = ring_flex_msg.data;
 }
 void ring_abd_cb(const std_msgs::Float64 &ring_abd_msg) {
-    ring_abd_pos = ring_abd_msg.data;
+    ring_abd_pos_next = ring_abd_msg.data;
 }
 void pinky_flex_cb(const std_msgs::Float64 &pinky_flex_msg) {
-    pinky_flex_pos = pinky_flex_msg.data;
+    pinky_flex_pos_next = pinky_flex_msg.data;
 }
 void pinky_abd_cb(const std_msgs::Float64 &pinky_abd_msg) {
-    pinky_abd_pos = pinky_abd_msg.data;
+    pinky_abd_pos_next = pinky_abd_msg.data;
 }
 void wrist_flex_cb(const std_msgs::Float64 &wrist_flex_msg) {
-    wrist_flex_pos = wrist_flex_msg.data;
+    wrist_flex_pos_next = wrist_flex_msg.data;
 }
 
 
@@ -96,4 +96,24 @@ double map2(double input, double x1, double x2, double y1, double y2) {
     if (input >= x2) return y2;
     double slope = (y2 - y1) / (x2 - x1);
     return (slope * (input - x1) + y1);
+}
+
+double lerp(double x1, double x2, double input) {
+    if (input <= 0) return x1;
+    if (input >= 1) return x2;
+    return (x1 + (x2-x1) * input);
+}
+
+void hand_lerp() {
+    thumb_flex_pos = lerp(thumb_flex_pos_prev, thumb_flex_pos_next, percent_complete);
+    thumb_abd_pos = lerp(thumb_abd_pos_prev, thumb_abd_pos_next, percent_complete);
+    index_flex_pos = lerp(index_flex_pos_prev, index_flex_pos_next, percent_complete);
+    index_abd_pos = lerp(index_abd_pos_prev, index_abd_pos_next, percent_complete);
+    middle_flex_pos = lerp(middle_flex_pos_prev, middle_flex_pos_next, percent_complete);
+    middle_abd_pos = lerp(middle_abd_pos_prev, middle_abd_pos_next, percent_complete);
+    ring_flex_pos = lerp(ring_flex_pos_prev, ring_flex_pos_next, percent_complete);
+    ring_abd_pos = lerp(ring_abd_pos_prev, ring_abd_pos_next, percent_complete);
+    pinky_flex_pos = lerp(pinky_flex_pos_prev, pinky_flex_pos_next, percent_complete);
+    pinky_abd_pos = lerp(pinky_abd_pos_prev, pinky_abd_pos_next, percent_complete);
+    wrist_flex_pos = lerp(wrist_flex_pos_prev, wrist_flex_pos_next, percent_complete);
 }

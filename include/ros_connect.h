@@ -25,10 +25,13 @@ extern std_msgs::Float64 ring_abd_msg;
 extern std_msgs::Float64 pinky_flex_msg;
 extern std_msgs::Float64 pinky_abd_msg;
 extern std_msgs::Float64 wrist_flex_msg;
+extern std_msgs::Float64 percent_msg;
 
 extern std_msgs::String debug_msg;
 
 extern ros::Publisher debug_pub;
+extern ros::Publisher percent_pub;
+
 
 // init
 void initROS();
