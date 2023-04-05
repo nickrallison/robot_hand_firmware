@@ -126,25 +126,25 @@ void loop()
 
   // ros::Rate rate(10);
   nh.spinOnce();
-  percent_complete += 1. / (sign_period * freq);
-  hand_lerp();
+  // percent_complete += 1. / (sign_period * freq);
+  // hand_lerp();
   command_motors();
-  percent_msg.data = percent_complete;
-  percent_pub.publish(&percent_msg);
-  if (percent_complete > 1.)
-  {
-    thumb_flex_pos_prev = thumb_flex_pos_next;
-    thumb_abd_pos_prev = thumb_abd_pos_next;
-    index_flex_pos_prev = index_flex_pos_next;
-    index_abd_pos_prev = index_abd_pos_next;
-    middle_flex_pos_prev = middle_flex_pos_next;
-    middle_abd_pos_prev = middle_abd_pos_next;
-    ring_flex_pos_prev = ring_flex_pos_next;
-    ring_abd_pos_prev = ring_abd_pos_next;
-    pinky_flex_pos_prev = pinky_flex_pos_next;
-    pinky_abd_pos_prev = pinky_abd_pos_next;
-    wrist_flex_pos_prev = wrist_flex_pos_next;
-    percent_complete = 0;
-  }
+  // percent_msg.data = percent_complete;
+  // percent_pub.publish(&percent_msg);
+  // if (percent_complete > 1.)
+  // {
+  //   thumb_flex_pos_prev = thumb_flex_pos_next;
+  //   thumb_abd_pos_prev = thumb_abd_pos_next;
+  //   index_flex_pos_prev = index_flex_pos_next;
+  //   index_abd_pos_prev = index_abd_pos_next;
+  //   middle_flex_pos_prev = middle_flex_pos_next;
+  //   middle_abd_pos_prev = middle_abd_pos_next;
+  //   ring_flex_pos_prev = ring_flex_pos_next;
+  //   ring_abd_pos_prev = ring_abd_pos_next;
+  //   pinky_flex_pos_prev = pinky_flex_pos_next;
+  //   pinky_abd_pos_prev = pinky_abd_pos_next;
+  //   wrist_flex_pos_prev = wrist_flex_pos_next;
+  //   percent_complete = 0;
+  // }
   delay(1. / freq);
 }
