@@ -1,5 +1,6 @@
 #define FLEX_MIN 150 // This is the 'minimum' pulse length count (out of 4096)
-#define FLEX_MAX 600 // This is the 'maximum' pulse length count (out of 4096)
+#define FLEX_MAX 500 // This is the 'maximum' pulse length count (out of 4096)
+#define PINKY_FLEX_MAX 520 // This is the 'maximum' pulse length count (out of 4096)
 
 #define FLEX_MAX_THUMB 600
 #define FLEX_MIN_THUMB 170
@@ -19,11 +20,11 @@
 #define PINKY_S2S 8
 #define PINKY_FLEX 9
 
-#define PINKY_NEUTRAL 250
+#define PINKY_NEUTRAL 240
 #define PINKY_L (PINKY_NEUTRAL - 10)
 #define PINKY_R (PINKY_NEUTRAL + 10)
 
-#define RING_NEUTRAL 270
+#define RING_NEUTRAL 263
 #define RING_L (RING_NEUTRAL - 10)
 #define RING_R (RING_NEUTRAL + 10)
 
