@@ -39,7 +39,7 @@ void command_motors() {
     pinky_flex_pwm  = map2(pinky_flex_pos,  pinky_flex_min_pos,  pinky_flex_max_pos,  FLEX_MIN,  FLEX_MAX);
     pinky_abd_pwm   = map2(pinky_abd_pos,   pinky_abd_min_pos,   pinky_abd_max_pos,   PINKY_R,   PINKY_L);
 
-    wrist_flex_pwm  = map2(wrist_flex_pos,  wrist_flex_min_pos,  wrist_flex_max_pos,  wrist_flex_min_pwm,  wrist_flex_max_pwm);
+   // wrist_flex_pwm  = map2(wrist_flex_pos,  wrist_flex_min_pos,  wrist_flex_max_pos,  wrist_flex_min_pwm,  wrist_flex_max_pwm);
 
     pwm.setPWM(THUMB_FLEX, 0, thumb_flex_pwm);
     pwm.setPWM(THUMB_S2S, 0, thumb_abd_pwm);
@@ -56,7 +56,7 @@ void command_motors() {
     pwm.setPWM(PINKY_FLEX, 0, pinky_flex_pwm);
     pwm.setPWM(PINKY_S2S, 0, pinky_abd_pwm);
 
-    pwm.setPWM(15, 0, wrist_flex_pwm);
+    //pwm.setPWM(15, 0, wrist_flex_pwm);
 
 }
 
@@ -109,16 +109,16 @@ double lerp(double x1, double x2, double input) {
     return (x1 + (x2-x1) * input);
 }
 
-void hand_lerp() {
-    thumb_flex_pos = lerp(thumb_flex_pos_prev, thumb_flex_pos_next, percent_complete);
-    thumb_abd_pos = lerp(thumb_abd_pos_prev, thumb_abd_pos_next, percent_complete);
-    index_flex_pos = lerp(index_flex_pos_prev, index_flex_pos_next, percent_complete);
-    index_abd_pos = lerp(index_abd_pos_prev, index_abd_pos_next, percent_complete);
-    middle_flex_pos = lerp(middle_flex_pos_prev, middle_flex_pos_next, percent_complete);
-    middle_abd_pos = lerp(middle_abd_pos_prev, middle_abd_pos_next, percent_complete);
-    ring_flex_pos = lerp(ring_flex_pos_prev, ring_flex_pos_next, percent_complete);
-    ring_abd_pos = lerp(ring_abd_pos_prev, ring_abd_pos_next, percent_complete);
-    pinky_flex_pos = lerp(pinky_flex_pos_prev, pinky_flex_pos_next, percent_complete);
-    pinky_abd_pos = lerp(pinky_abd_pos_prev, pinky_abd_pos_next, percent_complete);
-    wrist_flex_pos = lerp(wrist_flex_pos_prev, wrist_flex_pos_next, percent_complete);
-}
+// void hand_lerp() {
+//     thumb_flex_pos = lerp(thumb_flex_pos_prev, thumb_flex_pos_next, percent_complete);
+//     thumb_abd_pos = lerp(thumb_abd_pos_prev, thumb_abd_pos_next, percent_complete);
+//     index_flex_pos = lerp(index_flex_pos_prev, index_flex_pos_next, percent_complete);
+//     index_abd_pos = lerp(index_abd_pos_prev, index_abd_pos_next, percent_complete);
+//     middle_flex_pos = lerp(middle_flex_pos_prev, middle_flex_pos_next, percent_complete);
+//     middle_abd_pos = lerp(middle_abd_pos_prev, middle_abd_pos_next, percent_complete);
+//     ring_flex_pos = lerp(ring_flex_pos_prev, ring_flex_pos_next, percent_complete);
+//     ring_abd_pos = lerp(ring_abd_pos_prev, ring_abd_pos_next, percent_complete);
+//     pinky_flex_pos = lerp(pinky_flex_pos_prev, pinky_flex_pos_next, percent_complete);
+//     pinky_abd_pos = lerp(pinky_abd_pos_prev, pinky_abd_pos_next, percent_complete);
+//     wrist_flex_pos = lerp(wrist_flex_pos_prev, wrist_flex_pos_next, percent_complete);
+// }
