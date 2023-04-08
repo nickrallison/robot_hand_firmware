@@ -81,29 +81,29 @@ double pinky_flex_pwm = 0.0;
 double pinky_abd_pwm = 0.0;
 double wrist_flex_pwm = 0.0;
 
-double thumb_flex_min_pwm = 480;
-double thumb_abd_min_pwm = 85;
-double index_flex_min_pwm = 480;
-double index_abd_min_pwm = 85;
-double middle_flex_min_pwm = 480;
-double middle_abd_min_pwm = 85;
-double ring_flex_min_pwm = 480;
-double ring_abd_min_pwm = 85;
-double pinky_flex_min_pwm = 480;
-double pinky_abd_min_pwm = 85;
-double wrist_flex_min_pwm = 85;
+double thumb_flex_min_pwm = 600;
+double thumb_abd_min_pwm = 150;
+double index_flex_min_pwm = 600;
+double index_abd_min_pwm = 150;
+double middle_flex_min_pwm = 600;
+double middle_abd_min_pwm = 150;
+double ring_flex_min_pwm = 600;
+double ring_abd_min_pwm = 150;
+double pinky_flex_min_pwm = 600;
+double pinky_abd_min_pwm = 150;
+double wrist_flex_min_pwm = 150;
 
-double thumb_flex_max_pwm = 85;
-double thumb_abd_max_pwm = 480;
-double index_flex_max_pwm = 85;
-double index_abd_max_pwm = 480;
-double middle_flex_max_pwm = 85;
-double middle_abd_max_pwm = 480;
-double ring_flex_max_pwm = 85;
-double ring_abd_max_pwm = 480;
-double pinky_flex_max_pwm = 85;
-double pinky_abd_max_pwm = 480;
-double wrist_flex_max_pwm = 480;
+double thumb_flex_max_pwm = 150;
+double thumb_abd_max_pwm = 600;
+double index_flex_max_pwm = 150;
+double index_abd_max_pwm = 600;
+double middle_flex_max_pwm = 150;
+double middle_abd_max_pwm = 600;
+double ring_flex_max_pwm = 150;
+double ring_abd_max_pwm = 600;
+double pinky_flex_max_pwm = 150;
+double pinky_abd_max_pwm = 600;
+double wrist_flex_max_pwm = 600;
 
 double freq = 30;
 double sign_period = 2;
@@ -124,27 +124,26 @@ void setup()
 void loop()
 {
 
-  // ros::Rate rate(10);
   nh.spinOnce();
-  percent_complete += 1. / (sign_period * freq);
-  hand_lerp();
+  // percent_complete += 1. / (sign_period * freq);
+  // hand_lerp();
   command_motors();
-  percent_msg.data = percent_complete;
-  percent_pub.publish(&percent_msg);
-  if (percent_complete > 1.)
-  {
-    thumb_flex_pos_prev = thumb_flex_pos_next;
-    thumb_abd_pos_prev = thumb_abd_pos_next;
-    index_flex_pos_prev = index_flex_pos_next;
-    index_abd_pos_prev = index_abd_pos_next;
-    middle_flex_pos_prev = middle_flex_pos_next;
-    middle_abd_pos_prev = middle_abd_pos_next;
-    ring_flex_pos_prev = ring_flex_pos_next;
-    ring_abd_pos_prev = ring_abd_pos_next;
-    pinky_flex_pos_prev = pinky_flex_pos_next;
-    pinky_abd_pos_prev = pinky_abd_pos_next;
-    wrist_flex_pos_prev = wrist_flex_pos_next;
-    percent_complete = 0;
-  }
+  // percent_msg.data = percent_complete;
+  // percent_pub.publish(&percent_msg);
+  // if (percent_complete > 1.)
+  // {
+  //   thumb_flex_pos_prev = thumb_flex_pos_next;
+  //   thumb_abd_pos_prev = thumb_abd_pos_next;
+  //   index_flex_pos_prev = index_flex_pos_next;
+  //   index_abd_pos_prev = index_abd_pos_next;
+  //   middle_flex_pos_prev = middle_flex_pos_next;
+  //   middle_abd_pos_prev = middle_abd_pos_next;
+  //   ring_flex_pos_prev = ring_flex_pos_next;
+  //   ring_abd_pos_prev = ring_abd_pos_next;
+  //   pinky_flex_pos_prev = pinky_flex_pos_next;
+  //   pinky_abd_pos_prev = pinky_abd_pos_next;
+  //   wrist_flex_pos_prev = wrist_flex_pos_next;
+  //   percent_complete = 0;
+  // }
   delay(1. / freq);
 }
