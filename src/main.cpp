@@ -21,30 +21,6 @@ double pinky_flex_pos = 1.0;
 double pinky_abd_pos = 0.0;
 double wrist_flex_pos = 1.0;
 
-double thumb_flex_pos_prev = 1.0;
-double thumb_abd_pos_prev = 0.0;
-double index_flex_pos_prev = 1.0;
-double index_abd_pos_prev = 0.0;
-double middle_flex_pos_prev = 1.0;
-double middle_abd_pos_prev = 0.0;
-double ring_flex_pos_prev = 1.0;
-double ring_abd_pos_prev = 0.0;
-double pinky_flex_pos_prev = 1.0;
-double pinky_abd_pos_prev = 0.0;
-double wrist_flex_pos_prev = 1.0;
-
-double thumb_flex_pos_next = 1.0;
-double thumb_abd_pos_next = 0.0;
-double index_flex_pos_next = 1.0;
-double index_abd_pos_next = 0.0;
-double middle_flex_pos_next = 1.0;
-double middle_abd_pos_next = 0.0;
-double ring_flex_pos_next = 1.0;
-double ring_abd_pos_next = 0.0;
-double pinky_flex_pos_next = 1.0;
-double pinky_abd_pos_next = 0.0;
-double wrist_flex_pos_next = 1.0;
-
 double thumb_flex_min_pos = 0.0;
 double thumb_abd_min_pos = -1.0;
 double index_flex_min_pos = 0.0;
@@ -81,30 +57,6 @@ double pinky_flex_pwm = 0.0;
 double pinky_abd_pwm = 0.0;
 double wrist_flex_pwm = 0.0;
 
-double thumb_flex_min_pwm = 480;
-double thumb_abd_min_pwm = 85;
-double index_flex_min_pwm = 480;
-double index_abd_min_pwm = 85;
-double middle_flex_min_pwm = 480;
-double middle_abd_min_pwm = 85;
-double ring_flex_min_pwm = 480;
-double ring_abd_min_pwm = 85;
-double pinky_flex_min_pwm = 480;
-double pinky_abd_min_pwm = 85;
-double wrist_flex_min_pwm = 85;
-
-double thumb_flex_max_pwm = 85;
-double thumb_abd_max_pwm = 480;
-double index_flex_max_pwm = 85;
-double index_abd_max_pwm = 480;
-double middle_flex_max_pwm = 85;
-double middle_abd_max_pwm = 480;
-double ring_flex_max_pwm = 85;
-double ring_abd_max_pwm = 480;
-double pinky_flex_max_pwm = 85;
-double pinky_abd_max_pwm = 480;
-double wrist_flex_max_pwm = 480;
-
 double freq = 30;
 double sign_period = 2;
 double percent_complete = 0;
@@ -124,7 +76,6 @@ void setup()
 void loop()
 {
 
-  // ros::Rate rate(10);
   nh.spinOnce();
   // percent_complete += 1. / (sign_period * freq);
   // hand_lerp();
