@@ -57,38 +57,37 @@ void command_motors() {
 }
 
 void thumb_flex_cb(const std_msgs::Float64 &thumb_flex_msg) {
-    thumb_flex_pos_next = thumb_flex_msg.data;
-    percent_complete = 0;
+    thumb_flex_pos = thumb_flex_msg.data;
 }
 void thumb_abd_cb(const std_msgs::Float64 &thumb_abd_msg) {
-    thumb_abd_pos_next = thumb_abd_msg.data;
+    thumb_abd_pos = thumb_abd_msg.data;
 }
 void index_flex_cb(const std_msgs::Float64 &index_flex_msg) {
-    index_flex_pos_next = index_flex_msg.data;
+    index_flex_pos = index_flex_msg.data;
 }
 void index_abd_cb(const std_msgs::Float64 &index_abd_msg) {
-    index_abd_pos_next = index_abd_msg.data;
+    index_abd_pos = index_abd_msg.data;
 }
 void middle_flex_cb(const std_msgs::Float64 &middle_flex_msg) {
-    middle_flex_pos_next = middle_flex_msg.data;
+    middle_flex_pos = middle_flex_msg.data;
 }
 void middle_abd_cb(const std_msgs::Float64 &middle_abd_msg) {
-    middle_abd_pos_next = middle_abd_msg.data;
+    middle_abd_pos = middle_abd_msg.data;
 }
 void ring_flex_cb(const std_msgs::Float64 &ring_flex_msg) {
-    ring_flex_pos_next = ring_flex_msg.data;
+    ring_flex_pos = ring_flex_msg.data;
 }
 void ring_abd_cb(const std_msgs::Float64 &ring_abd_msg) {
-    ring_abd_pos_next = ring_abd_msg.data;
+    ring_abd_pos = ring_abd_msg.data;
 }
 void pinky_flex_cb(const std_msgs::Float64 &pinky_flex_msg) {
-    pinky_flex_pos_next = pinky_flex_msg.data;
+    pinky_flex_pos = pinky_flex_msg.data;
 }
 void pinky_abd_cb(const std_msgs::Float64 &pinky_abd_msg) {
-    pinky_abd_pos_next = pinky_abd_msg.data;
+    pinky_abd_pos = pinky_abd_msg.data;
 }
 void wrist_flex_cb(const std_msgs::Float64 &wrist_flex_msg) {
-    wrist_flex_pos_next = wrist_flex_msg.data;
+    wrist_flex_pos = wrist_flex_msg.data;
 }
 
 

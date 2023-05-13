@@ -5,6 +5,7 @@
 #include <ros/time.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/String.h>
+#include <std_msgs/Float64MultiArray.h>
 
 NodeHandle nh;
 
@@ -27,10 +28,13 @@ std_msgs::Float64 wrist_flex_msg;
 
 std_msgs::Float64 percent_msg;
 
+std_msgs::Float64MultiArray audio_msg;
+
 std_msgs::String debug_msg;
 
 ros::Publisher percent_pub("/percent", &percent_msg);
 ros::Publisher debug_pub("/debug", &debug_msg);
+ros::Publisher audio_pub("/audio", &audio_msg);
 
 ros::Subscriber<std_msgs::Float64> thumb_flex_sub ("/actuation/thumb/flex", &thumb_flex_cb);
 ros::Subscriber<std_msgs::Float64> thumb_abd_sub  ("/actuation/thumb/abd",  &thumb_abd_cb);
@@ -77,6 +81,7 @@ void initROS() {
   // #### Publishers
   nh.advertise(debug_pub);
   nh.advertise(percent_pub);
+  nh.advertise(audio_pub);
   
   // give serial_node.py a chance to get to know the topics
   nh.negotiateTopics();

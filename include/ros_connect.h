@@ -5,6 +5,7 @@
 #include <ros/time.h>
 #include <std_msgs/Float64.h>
 #include <std_msgs/String.h>
+#include <std_msgs/Float64MultiArray.h>
 #include <tf/tf.h>
 
 typedef ros::NodeHandle_<ArduinoHardware, 25, 25, 2048, 2048>
@@ -29,8 +30,11 @@ extern std_msgs::Float64 percent_msg;
 
 extern std_msgs::String debug_msg;
 
+extern std_msgs::Float64MultiArray audio_msg;
+
 extern ros::Publisher debug_pub;
 extern ros::Publisher percent_pub;
+extern ros::Publisher audio_pub;
 
 
 // init
