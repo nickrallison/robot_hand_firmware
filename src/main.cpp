@@ -6,6 +6,7 @@
 #include "robot_constant.h"
 #include "motor_drive.h"
 #include "ros_connect.h"
+#include "I2S_UDP.h"
 
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
@@ -69,13 +70,15 @@ void setup()
   Serial.begin(9600);
   nh.getHardware()->setBaud(9600);
 
+  setupWiFi();
+  I2SSetup();
   init_motors();
   initROS();
 }
 
 void loop()
 {
-
+  mic_loop();
   nh.spinOnce();
   // percent_complete += 1. / (sign_period * freq);
   // hand_lerp();
