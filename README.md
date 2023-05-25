@@ -1,7 +1,7 @@
-# Canis Minor Firmware
+# Robot Hand Firmware
 
 ## Description:
-This is the firmware used by AC Robotics' Canis Bot. Uses ROS to listen to motor command positions and move motors to those positions. Inverse kinematics and Gait done by RPi.
+This is the firmware used to control the robot hand and send microphone data to the laptop controlling it
 
 ## Install Directions
 1. Install ProjectIO in VScode
@@ -9,6 +9,7 @@ This is the firmware used by AC Robotics' Canis Bot. Uses ROS to listen to motor
 
 ## Uses:
 1. Driving Servo Motors
+2. Listening to Microphone
 
 ## Dependencies
 - ROS 
